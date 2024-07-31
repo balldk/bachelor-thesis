@@ -1,0 +1,484 @@
+\chapter{Đối đồng điều của $SL_2(\Z[1/p])$}
+Đối đồng điều của $SL_2(\Z[1/p])$ với $p$ nguyên tố đã được Adem và Naffah tính triệt để vào 1998 \cite{AdemSL2}. Trong chương này, tôi sẽ trình bày lại công trình nêu trên của hai tác giả.
+
+Nhắc lại Hệ quả \ref{cor:amalgam-sl2-1p}, ta có phân tích amalgam
+$$
+    SL_2(\Z[1/p]) \cong SL_2(\Z) *_{\Gamma_0(p)} SL_2(\Z),
+$$
+trong đó $\Gamma_0(p)$ là nhóm con đồng dư Hecke của $SL_2(\Z)$. Ta đã tính được đối đồng điều của $SL_2(\Z)$ từ chương trước, bước tiếp theo ta cần tính đối đồng điều của nhóm con đồng dư $\Gamma_0(p)$.
+
+\section{Phân tích lớp kề}
+Ta kí hiệu $C_2, C_4$ và $C_6$ là các nhóm con cyclic của $SL_2(\Z)$ lần lượt sinh bởi ma trận $a_2, a_4$ và $a_6$ cho bởi
+$$
+    a_{2} =\begin{pmatrix}
+        -1 & 0  \\
+        0  & -1
+    \end{pmatrix} ,\ a_{4} =\begin{pmatrix}
+        0 & -1 \\
+        1 & 0
+    \end{pmatrix} ,\ a_{6} =\begin{pmatrix}
+        0 & -1 \\
+        1 & 1
+    \end{pmatrix}.
+$$
+Xét $G = SL_2(\F_p)$ và
+$$
+    B = \left\{ \begin{pmatrix}
+        * & * \\
+        0 & *
+    \end{pmatrix} \in SL_2(\F_p) \right\}
+$$
+là nhóm con của $G$. Ta dễ dàng kiểm tra được tập các lớp kề phải $B \setminus G$ có phân tích
+$$
+    B \setminus G = B a_4 \sqcup \left( \bigsqcup_{x \in \F_p} B \begin{pmatrix}
+        1 & 0 \\
+        x & 1
+    \end{pmatrix} \right).
+$$
+Do $a_2$ nằm trong tâm của $G$ nên ta có phân tích lớp kề đôi cho $G$ dùng $B$ và $C_2$ như sau
+$$
+    G = B a_4 C_2 \sqcup \left( \bigsqcup_{x \in \F_p} B \begin{pmatrix}
+        1 & 0 \\
+        x & 1
+    \end{pmatrix} C_2 \right).
+$$
+Áp dụng công thức lớp kề đôi, ta được
+$$
+    \Z[G/C_2]_{|B} \cong (\Z[B/C_2])^{p+1}.
+$$
+Tiếp theo ta xét lớp kề đôi của $G$ dùng $C_4$. Để ý rằng
+$$
+    \begin{pmatrix}
+        1 & 0 \\
+        x & 1
+    \end{pmatrix}\begin{pmatrix}
+        0 & -1 \\
+        1 & 0
+    \end{pmatrix} =\begin{pmatrix}
+        0 & -1 \\
+        1 & -x
+    \end{pmatrix} \text{ và } \begin{pmatrix}
+        0 & -1 \\
+        1 & -x
+    \end{pmatrix}\begin{pmatrix}
+        1   & 0 \\
+        1/x & 1
+    \end{pmatrix} =\begin{pmatrix}
+        -1/x & -1 \\
+        0    & -x
+    \end{pmatrix}.
+$$
+Từ đây ta kết luận, trong trường hợp $x \neq -1/x$ hay $x \neq 0$, thì
+$$
+    B\begin{pmatrix}
+        1 & 0 \\
+        x & 1
+    \end{pmatrix}\begin{pmatrix}
+        0 & -1 \\
+        1 & 0
+    \end{pmatrix} =B\begin{pmatrix}
+        1    & 0 \\
+        -1/x & 1
+    \end{pmatrix}.
+$$
+Suy ra
+$$
+    B\begin{pmatrix}
+        1 & 0 \\
+        x & 1
+    \end{pmatrix} C_{4} =B\begin{pmatrix}
+        1 & 0 \\
+        x & 1
+    \end{pmatrix} \sqcup B\begin{pmatrix}
+        1    & 0 \\
+        -1/x & 1
+    \end{pmatrix}\text{ và } Ba_4C_4 = B \sqcup B a_4.
+$$
+Đối với cả hai trường hợp, hai lớp kề bị hoán vị bởi ma trận $a_4$. Trong trường hợp $x^2+1=0$, lớp kề bị cố định bởi tác động này và do đó bằng với lớp kề đôi tương ứng. Nhắc lại một kết quả sơ cấp rằng đa thức $t^2+1$ có nghiệm trong $\F_p$ khi và chỉ khi $p \equiv 1 \mmod 4$. Điều này cộng với công thức lớp kề đôi ta được
+$$
+    \Z[G/C_4]_{|B} \cong \Z[B/s_1 C_4 s_1^{-1}] \oplus \Z[B/s_2 C_4 s_2^{-1}] \oplus (\Z[B/C_2])^{(p-1)/2}
+$$
+nếu $p \equiv 1\ \operatorname*{mod}\ 4$, trong đó trong đó $s_1,s_2$ ứng với hai nghiệm của đa thức $x^2+1=0$. Và với các trường hợp còn lại thì
+$$
+    \Z[G/C_4]_{|B} \cong (\Z[B/C_2])^{(p-1)/2}.
+$$
+
+Với $C_6$ ta cần nhìn vào tác động của ma trận cấp $3$, $\begin{pmatrix}
+        0  & 1  \\
+        -1 & -1
+    \end{pmatrix}$ lên lớp kề đôi. Trong trường hợp này thì quỹ đạo của tác động trên có dạng
+$$
+    B\begin{pmatrix}
+        1 & 0 \\
+        x & 1
+    \end{pmatrix},\enskip
+    B\begin{pmatrix}
+        1       & 0 \\
+        1/(1-x) & 1
+    \end{pmatrix},\enskip
+    B\begin{pmatrix}
+        1       & 0 \\
+        (x-1)/x & 1
+    \end{pmatrix}
+$$
+trong đó $x \neq 1$. Lớp kề bị cố định khi và chỉ khi $x^2 - x + 1 = 0$. Nếu $p > 3$, đa thức có nghiệm trong $\F_p$ khi và chỉ khi $p \equiv 1 \mmod 3$. Nếu $x=1$, lớp kề cho ta các quỹ đạo
+$$
+    B,\enskip
+    B\begin{pmatrix}
+        1 & 0 \\
+        1 & 1
+    \end{pmatrix},\enskip
+    Ba_4.
+$$
+Từ đó ta có phân tích
+$$
+    \Z[G/C_6]_{|B} \cong \Z[B/s_1C_6s_1^{-1}] \oplus \Z[B/s_2 C_6 s_2^{-1}] \oplus \Z[B/C_2]^{(p-1)/3} \text{ nếu } p \equiv 1 \mmod 3
+$$
+và
+$$
+    \Z[G/C^6]_{|B} \cong \Z[B/C_2]^{(p+1)/3} \text{ trong trường hợp còn lại}.
+$$
+\section{Đối đồng điều thứ nhất của $\Gamma_0(p)$}
+Nhắc lại chương 1 thì $SL_2(\Z)$ tác động lên cây $X$ có các nhóm con ổn định hữu hạn. Ta có nhóm con đồng dư chính $\Gamma(p)$ tự do xoắn nên tác động tự do lên X, từ đó cảm sinh ra tác động của $G = SL_2(\F_p)$ lên đồ thị hữu hạn $X/\Gamma(p)$. Nhóm con ổn định của tác động này chính là $C_4$ và $C_6$ đối với đỉnh và $C_2$ đối với cạnh của miền cơ bản. Trước tiên ta sẽ đi mô tả cấu trúc của không gian phân loại $B\Gamma_0(p)$ của $\Gamma_0(p)$.
+% Bằng phép chiếu $\pi: \Gamma_0(p) \rightarrow B$, $\Gamma_0(p)$ tác động chéo lên $EB \times X$ với nhóm con ổn định tầm thường. Do không gian này co rút được, không gian quỹ đạo dưới tác động này có cùng kiểu đồng luân với không gian phân loại $B\Gamma_0(p)$, và do đó $B\Gamma_0(p) \cong (EB \times T/\Gamma(p))/B$.
+
+\begin{proposition}
+    Xét $EB$ là không gian co rút được sao cho tác động cho bởi $B$ là tác động tự do. Khi đó
+    $$
+        B\Gamma_0(p) \cong (EB \times T/\Gamma(p))/B.
+    $$
+\end{proposition}
+
+\startproof Xét dãy khớp ngắn cho bởi
+$$
+    1 \rightarrow \Gamma(p) \rightarrow \Gamma_0(p) \rightarrow B \rightarrow 1.
+$$
+Sử dụng phép chiếu $\pi: \Gamma_0 \rightarrow B$, ta định nghĩa tác động chéo của $\Gamma_0(p)$ lên $EB \times X$ cho bởi
+$$
+    g(x,y) = (x(\pi(g))^{-1}, gy).
+$$
+Vì $B$ tác động tự do lên $EB$ nên tác động ta đưa ra cũng tự do. Hơn nữa $EB \times X$ cũng là không gian co rút được nên không gian quỹ đạo $(EB \times X) / \Gamma_0(p)$ tương đương đồng luân với không gian phân loại $B\Gamma_0(p)$. Cuối cùng ta có
+$$
+    (EB \times X) / \Gamma_0(p) \cong (EB \times X/\Gamma(p))/B.
+    \eqno\qed
+$$
+
+% \begin{proposition}
+Gọi $C^*$ là đối phức ô tương ứng với phức $B$-CW của cây $T/\Gamma(p)$, từ các lập luận trên ta suy ra được
+$$
+    C^0 \cong \Z[G/C_4]_{|B} \oplus \Z[G/C_6]_{|B} \text{ và } C^1 \cong \Z[G/C_2]_{|B}.
+$$
+
+Lúc này dãy phổ đẳng biến theo lọc thứ 2 được mô tả ở Định lí \ref{thm:equiv-spec} hội tụ về $H^*(\Gamma_0(p))$, với $E_1^{pq} \cong H^q(B,C^p)$. Ngoài ra $E_2^{pq} = 0$ ngoại trừ $p=0,1$, do đó theo Mệnh đề \ref{prop:spec-exact} ta có dãy khớp
+$$
+    0 \rightarrow E_2^{1,n-1} \rightarrow H^n(\Gamma_0(p)) \rightarrow E_2^{0,n} \rightarrow 0.
+$$
+Từ đó ta có dãy khớp dài
+\begin{equation}\label{eq:long-gamma-p}
+    \cdots \rightarrow H^i(\Gamma_0(p)) \rightarrow H^i(B,C^0) \rightarrow H^i(B,C^1) \rightarrow H^{i+1}(\Gamma_0(p); \Z) \rightarrow \cdots,
+\end{equation}
+trong đó đồng cấu ở giữa là đồng cấu cảm sinh từ đồng cấu biên của $C^*$.
+
+\begin{proposition}\label{prop:first-cohom-congurence}
+    $H^1(\Gamma_0(p); \Z) \cong \Z^{N(p)}$, trong đó
+    $$
+        N(p) = \begin{cases}
+            (p-7)/6, & \text{nếu } p \equiv 1 \mmod 12,  \\
+            (p+1)/6, & \text{nếu } p \equiv 5 \mmod 12,  \\
+            (p-1)/6, & \text{nếu } p \equiv 7 \mmod 12,  \\
+            (p+7)/6, & \text{nếu } p \equiv 11 \mmod 12.
+        \end{cases}
+    $$
+\end{proposition}
+
+\startproof Đoạn đầu của dãy khớp \ref{eq:long-gamma-p} có dạng
+$$
+    0 \rightarrow \Z \rightarrow (C^0)^B \rightarrow (C^1)^B \rightarrow H^1(\Gamma_0(p); \Z) \rightarrow H^1(B; C^0) \rightarrow \cdots
+$$
+Sử dụng công thức lớp ghép đôi và Mệnh đề \ref{prop:cohom-coef-prod} ta được
+$$
+    H^1(B;C^0) \cong H^1(B; \Z[G/C_4]_{|B}) \oplus H^1(B;\Z[G/C_6]_{|B}).
+$$
+Trong trường hợp $p \equiv 1 \mmod 4$, cũng từ Mệnh đề \ref{prop:cohom-coef-prod} ta suy ra
+$$
+    H^1(B;\Z[G/C_4]_{|B}) \cong H^1(B;\Z[B/s_1C_4s_1^{-1}]) \oplus H^1(B;B/s_2C_4s_2^{-1}) \oplus H^1(B;\Z[B/C_2]^{(p-1)/2}).
+$$
+Tính tiếp cho $H^1(B;\Z[G/C_2]_{|B})$ ta được
+$$
+    H^1(B;\Z[B/C_2]^{(p-1)/2}) \cong \bigoplus_{i=1}^{(p-1)/2} H^1(B;\Z[B/C_2]),
+$$
+lúc này theo bổ đề Shapiro
+\begin{align*}
+    H^1(B;\Z[B/C_2]^{(p-1)/2}) & \cong \bigoplus_{i=1}^{(p-1)/2} H^1(B;\Ind_{C_2}^B\Z) \\
+                               & \cong \bigoplus_{i=1}^{(p-1)/2} H^1(C_2;\Z)           \\
+                               & \cong 0.
+\end{align*}
+Tiếp tục ta có
+\begin{align*}
+    H^1(B;\Z[B/s_1C_4s_1^{-1}]) & \cong H^1(B;\Ind_{s_1C_4s_1^{-1}}\Z) \\
+                                & \cong H^1(s_1C_4s_1^{-1}; \Z)        \\
+                                & \cong H^1(C_4;\Z)                    \\
+                                & \cong 0.
+\end{align*}
+Điều này dẫn đến $H^1(B;\Z[G/C_4])$ cũng tầm thường. Sử dụng lập luận trên cho các trường hợp còn lại ta được $H^1(B,C^0) \cong 0$.
+
+\section{Đối đồng điều của nhóm con đồng dư $\PGam_0(p)$}
+\begin{lemma}
+    Nhắc lại sự phân tính ở Hệ quả \ref{cor:sl2z-presentation}
+    $$
+        PSL(2,\Z) \cong \Z/2 * \Z/3.
+    $$
+    Theo dãy phổ đẳng biến ta được dãy khớp dài
+    \begin{equation}\label{eq:long-equivariant}
+        \cdots \rightarrow H^i(\PGam_0(p);\Z) \rightarrow H^i(PB; PC^0) \rightarrow H^i(PB;PC^0) \rightarrow H^{i+1}(\PGam_0(p);\Z) \rightarrow \cdots
+    \end{equation}
+\end{lemma}
+
+\begin{proposition}
+    $H^1(\PGam_0(p);\Z) \cong H^1(\Gamma_0(p);\Z)$.
+\end{proposition}
+\startproof Phần đầy của dãy khớp \ref{eq:long-equivariant} có dạng
+$$
+    0 \rightarrow (PC^0)^{PB} \rightarrow (PC^1)^{PB} \rightarrow H^1(\PGam_0(p);\Z) \rightarrow H^1(PB, PC^0) \rightarrow \cdots
+$$
+Theo Mệnh đề \ref{prop:first-cohom-congurence} thì $H^1(PB;PC^0) = 0$. Để ý rằng $(PC^0)^{PB}$ và $(PC^1)^{PB}$ có hạng bằng nhau, $(PC^1)^{PB}$ và $(C^1)^B$ có hạng bằng nhau, do đó ta có điều phải chứng minh.\qed
+
+\begin{proposition}
+    Với số nguyên $i \geq 1$, ta có
+    $$
+        H^{2i}(\PGam_0(p);\Z) \cong \begin{cases}
+            \Z/6 \oplus \Z/6 & \text{nếu } p \equiv 1 \mmod 12,  \\
+            \Z/2 \oplus \Z/2 & \text{nếu } p \equiv 5 \mmod 12,  \\
+            \Z/3 \oplus \Z/3 & \text{nếu } p \equiv 7 \mmod 12,  \\
+            0                & \text{nếu } p \equiv 11 \mmod 12.
+        \end{cases}
+    $$
+    và $H^{2i+1} = 0$.
+\end{proposition}
+\startproof Chú ý rằng $PC^1$ là $PB$-môđun tự do, suy ra $H^{2i+1}(PB;PC^1) = 0$. Từ điều đó cộng với dãy khớp dài \ref{eq:long-equivariant} ta suy ra $H^{2i}(\PGam_0(p);\Z) \cong H^2(PB;PC^0)$ với mọi $i \geq 0$ và
+$$
+    H^{2i+1}(\PGam_0(p);\Z) = H^{2i+1}(PB;PC^1) = 0.
+$$
+
+\section{Đối đồng điều của nhóm con đồng dư $\Gamma_0(p)$}
+Dùng dãy phổ Lyndon-Hochschild-Serre \ref{thm:hoschschild-spec} trên $\Z/3$ liên kết dãy khớp sau
+$$
+    1 \rightarrow C_2 \rightarrow \Gamma_0(p) \rightarrow \PGam_0(p) \rightarrow 1,
+$$
+ta được
+$$
+    E_2^{pq} = H^p(\PGam_0(p); H^q(C_2; \Z/3)) \Rightarrow H^{p+q}(\Gamma_0(p); \Z/3).
+$$
+Ta thấy rằng $H^q(C_2;\Z/3) = 0$ với mọi $q > 0$ và $H^0(C_2;\Z/3)$. Điều này dẫn đến $E^2 = E^{\infty}$ và ta được $H^n(\Gamma_0(p);\Z/3) \cong H^n(\PGam_0(p);\Z/3)$. Do đó thành phần $3$-nguyên sơ của $H^n(\PGam_0(p);\Z)$ và $H^n(\Gamma_0(p);\Z)$ là như nhau.
+
+% \begin{proposition}
+%     Với $p>3$, nhóm $\Gamma_{0}(p)$ là nhóm có chu kì và có chiều đối đồng điều giả lập hũu hạn.
+% \end{proposition}
+
+% \startproof Chúng ta có nhận xét sau là mọi nhóm con hữu hạn của $S L(2, \mathbb{Z})$ đều là liên hợp của các nhóm con của $C_{4}$ và $C_{6}$ vì $SL(2, \mathbb{Z})=\mathbb{Z} / 4 * \mathbb{Z} / 2 \mathbb{Z} / 6$. Bên cạnh đó, chúng ta biết được rằng có 4 kiểu nhóm con hữu hạn của nhóm $\mathrm{SL}(2, \mathbb{Z})$ (tương đương theo phép liên hợp), trong đó các nhóm con này được sinh bởi
+
+% $$
+%     \left(\begin{array}{cc}
+%             -1 & 0  \\
+%             0  & -1
+%         \end{array}\right),\left(\begin{array}{cc}
+%             -1 & -1 \\
+%             1  & 0
+%         \end{array}\right),\left(\begin{array}{cc}
+%             0  & 1 \\
+%             -1 & 0
+%         \end{array}\right),\left(\begin{array}{cc}
+%             0 & -1 \\
+%             1 & 1
+%         \end{array}\right)
+% $$
+
+% do đó các nhóm con hữu hạn của $\Gamma_{0}(p)$ chỉ có thể là một trong 4 dạng trên. Do đó, theo Định lý 1.86 thì $\Gamma_{0}(p)$ phải là nhóm có chu kỳ với chu kỳ là 2 .
+
+% Bây giờ chúng ta chứng minh $\Gamma_{0}(p)$ có chiều giả lập hữu hạn. Thật vậy, chúng ta biết rằng $\Gamma_{0}(p)$ chứa nhóm $\Gamma(p)$ mà nhóm này là nhóm tự do (Mệnh đề 1.67 và Định lý 1.61) nên $\operatorname{cd}(\Gamma(p))=1$ kết hợp với nhóm này có chỉ số hữu hạn trong $\Gamma_{0}(p)$, ta được $\operatorname{vcd}\left(\Gamma_{0}(p)\right)=1$.
+
+% Theo mệnh đề trên, chúng ta chỉ cần tính nhóm $H^{2}$ và nhóm $H^{3}$ là đủ. Trong trường hợp nhóm $H^{2}$, chúng ta thấy rằng $E_{2}^{0,2}=H^{2}\left(C_{2}, \mathbb{Z}\right) \cong \mathbb{Z} / 2$ và $\left(E_{2}^{2,0}\right)_{(2)}=$ $H^{2}\left(\mathrm{P}_{0}(p), \mathbb{Z}\right)_{(2)} \cong \mathbb{Z} / 2 \oplus \mathbb{Z} / 2$. Vì thành phần $\mathbb{Z} / 4$ phải xuất hiện (sẽ có một nhóm con như vậy) nên ta được mệnh đề sau.
+
+\begin{proposition}
+    $H^{2}\left(\Gamma_{0}(p), \mathbb{Z}\right)_{(2)} \cong \mathbb{Z} / 4 \oplus \mathbb{Z} / 2$.
+\end{proposition}
+
+Bây giờ chúng ta chứng minh rằng nhóm $H^{2}\left(\Gamma_{0}(p), \mathbb{Z}\right)$ chứa nhóm $\mathbb{Z} / 4$. Thật vậy, theo lập luận ở phía trên thì các nhóm con hữu hạn của nhóm $\Gamma_{0}(p)$ sẽ có các dạng sau (tương đương theo phép liên hợp)
+
+$$
+    \left(\begin{array}{cc}
+            -1 & 0  \\
+            0  & -1
+        \end{array}\right),\left(\begin{array}{cc}
+            -1 & -1 \\
+            1  & 0
+        \end{array}\right),\left(\begin{array}{cc}
+            0  & 1 \\
+            -1 & 0
+        \end{array}\right),\left(\begin{array}{cc}
+            0 & -1 \\
+            1 & 1
+        \end{array}\right)
+$$
+
+Chúng ta cần tìm $g=\left(\begin{array}{ll}a & b \\ c & d\end{array}\right)$ sao cho
+$g\left(\begin{array}{cc}
+            0  & 1 \\
+            -1 & 0
+        \end{array}\right) g^{-1} \in \Gamma_{0}(p)$.
+
+để được điều trên, chúng ta cần ràng buộc sau $c^{2}+d^{2}=k p$. Tiếp theo chúng ta sử dụng sự kiện: mọi số được phân tích thành tổng hai bình phương nếu nó không chứa bất kỳ số nguyên tố nào thỏa $p \equiv 3 \bmod (4)$. Tóm lại, chúng ta đã chứng minh được bổ đề sau.
+
+\begin{lemma}
+    Nếu $p \equiv 1,5 \bmod (12)$ thì nhóm $\Gamma_{0}(p)$ phải chứa nhóm con $C_{4}$.
+\end{lemma}
+
+Vì $\operatorname{vcd}\left(\Gamma_{0}(p)\right)=1$ nên theo Định lý 1.87, ta được
+
+$$
+    \widehat{H}^{*}\left(\Gamma_{0}(p), \mathbb{Z}\right)_{(2)}=\prod_{P \in \mathcal{P}} \widehat{H}^{*}(N(P))_{(2)}
+$$
+
+trong đó $P$ là $2-$ nhóm con abel của $\Gamma_{0}(p)$ với hạng $\leq 1$ và $\mathcal{P}$ là tập các lớp của các nhóm con cấp hai trong nhóm $\Gamma_{0}(p)$ theo phép liên hợp. Tiếp theo, vì nhóm $\Gamma_{0}(p)$ chứa nhóm con $C_{4}$ và $\widehat{H}^{*}\left(N\left(C_{4}\right)\right)_{(2)}=\widehat{H}^{*}\left(C_{4}\right)^{N\left(C_{4}\right)}$ nên đối đồng điều thứ hai của nhóm $\Gamma_{0}(p)$ phải chứa thành phần $\mathbb{Z} / 4$. Cuối cùng ta được Định lí sau.
+
+\begin{theorem}
+    Với số nguyên $i \geq 1$, ta có
+    $$
+        H^{2i}(\Gamma_0(p);\Z) \cong \begin{cases}
+            \Z/12 \oplus \Z/6 & \text{nếu } p \equiv 1 \mmod 12,  \\
+            \Z/4 \oplus \Z/2  & \text{nếu } p \equiv 5 \mmod 12,  \\
+            \Z/3 \oplus \Z/6  & \text{nếu } p \equiv 7 \mmod 12,  \\
+            \Z/2              & \text{nếu } p \equiv 11 \mmod 12. \\
+        \end{cases}
+    $$
+    và
+    $$
+        H^{2i+1}(\Gamma_0(p);\Z) \cong (\Z/2)^{N(p)}.
+    $$
+\end{theorem}
+
+\section{Đối đồng điều của $SL_2(\Z[1/p])$}
+
+Sử dụng dãy khớp dài \ref{prop:long-seq-amalgam} lên phân tích amalgam \ref{cor:amalgam-sl2-1p}
+$$
+    SL_2(\Z[1/p]) \cong SL_2(\Z) *_{\Gamma_0(p)} SL_2(\Z).
+$$
+ta được
+\begin{align*}
+    0 \rightarrow \Z^{N(p)} \rightarrow H^2(SL_2(\Z[1/p]);\Z) & \rightarrow \Z/12 \oplus \Z/12                                                   \\
+                                                              & \rightarrow H^2(\Gamma_0(p);\Z) \rightarrow H^3(SL_2(\Z[1/p]); \Z) \rightarrow 0
+\end{align*}
+và
+\begin{align*}
+    0 \rightarrow (\Z/2)^{N(p)} \rightarrow H^{2i}(SL_2(\Z[1/p]);\Z) & \rightarrow \Z/12 \oplus \Z/12                                                      \\
+                                                                     & \rightarrow H^{2i}(\Gamma_0(p);\Z) \rightarrow H^3(SL_2(\Z[1/p]); \Z) \rightarrow 0
+\end{align*}
+
+Từ Định lí \ref{thm:abel-sl2-1m} ta biết rằng
+$$
+    H_1(SL_2(\Z[1/p]);\Z) \cong \begin{cases}
+        \Z/3  & \text{nếu } p = 2, \\
+        \Z/4  & \text{nếu } p = 3, \\
+        \Z/12 & \text{còn lại}.
+    \end{cases}
+$$
+Do đó với $p>3$, $H^2(SL_2(\Z[1/p]);\Z) \cong \Z^{N(p)} \oplus \Z/12$. Đặt $A(p) = 12/|Q(p)|$, trong đó $Q(p)$ là nhóm con cyclic lớn nhất của $H^2(\Gamma_0(p);\Z)$. Suy ra
+\begin{equation}\label{eq:sl2-extension}
+    0 \rightarrow (\Z/2)^{N(p)} \rightarrow H^{2i}(SL_2(\Z[1/p]);\Z) \rightarrow \Z/12 \oplus \Z/A(p) \rightarrow 0
+\end{equation}
+và
+$$
+    H^{2i+1}(SL_2(\Z[1/p]); \Z) \cong H^{2i}(\Gamma_0(p);\Z) / Q(p).
+$$
+Dựa trên tính toán cho $\Gamma_0(p)$, ta có
+$$
+    Q(p) = \begin{cases}
+        \Z/12 & \text{nếu } p \equiv 1 \mmod 12,  \\
+        \Z/4  & \text{nếu } p \equiv 5 \mmod 12,  \\
+        \Z/6  & \text{nếu } p \equiv 7 \mmod 12,  \\
+        \Z/2  & \text{nếu } p \equiv 11 \mmod 12.
+    \end{cases}
+$$
+Cuối cùng ta chỉ cần giải bài toán mở rộng nhóm \ref{eq:sl2-extension}. Tóm lại ta có định lí.
+\begin{theorem}
+    Với $p$ là số nguyên tố lớn hơn $3$, ta có $H^1(SL_2(\Z[1/p]);\Z) \cong 0$ và
+    $$
+        H^2(SL_2(\Z[1/p]);\Z) \cong \begin{cases}
+            \Z^{(p-7)/6} \oplus \Z/12 & \text{nếu } p \equiv 1 \mmod 12,  \\
+            \Z^{(p+1)/6} \oplus \Z/12 & \text{nếu } p \equiv 5 \mmod 12,  \\
+            \Z^{(p-1)/6} \oplus \Z/12 & \text{nếu } p \equiv 7 \mmod 12,  \\
+            \Z^{(p+7)/6} \oplus \Z/12 & \text{nếu } p \equiv 11 \mmod 12.
+        \end{cases}
+    $$
+    Với $i \geq 2$,
+    $$
+        H^{2i}(SL_2(\Z[1/p]);\Z) \cong \begin{cases}
+            (\Z/2)^{(p-7)/6} \oplus \Z/12              & \text{nếu } p \equiv 1 \mmod 12,  \\
+            (\Z/2)^{(p+1)/6} \oplus \Z/12 \oplus \Z/3  & \text{nếu } p \equiv 5 \mmod 12,  \\
+            (\Z/2)^{(p-1)/6} \oplus \Z/12 \oplus \Z/4  & \text{nếu } p \equiv 7 \mmod 12,  \\
+            (\Z/2)^{(p+7)/6} \oplus \Z/12 \oplus \Z/12 & \text{nếu } p \equiv 11 \mmod 12.
+        \end{cases}
+    $$
+    và
+    $$
+        H^{2i-1}(SL_2(\Z[1/p]);\Z) \cong \begin{cases}
+            \Z/6 & \text{nếu } p \equiv 1 \mmod 12,  \\
+            \Z/2 & \text{nếu } p \equiv 5 \mmod 12,  \\
+            \Z/3 & \text{nếu } p \equiv 7 \mmod 12,  \\
+            0    & \text{nếu } p \equiv 11 \mmod 12.
+        \end{cases}
+    $$
+\end{theorem}
+
+Ta chỉ cần tính toán riêng cho hai trường hợp $p=2,3$ còn lại. Cụ thể ta có
+$$
+    H^i(\Gamma_0(\Z/3);\Z) \cong \begin{cases}
+        \Z   & \text{nếu } i = 0,1,   \\
+        \Z/6 & \text{nếu $i$ chẵn},   \\
+        \Z   & \text{nếu $i$ > 1 lẻ}.
+    \end{cases}
+$$
+Khi đó ta có $H^2(SL_2(\Z[1/3]);\Z) \cong \Z \oplus \Z/4$ và $H^{2i+1}(SL_2(\Z[1/3]); \Z) = 0$. Cuối cùng ta cần xử lí mở rộng
+$$
+    0 \rightarrow \Z/2 \rightarrow H^{2i}(SL_2(\Z[1/p]);\Z) \rightarrow \Z/12 \oplus \Z/2 \rightarrow 0.
+$$
+Dãy này chẻ với hạng tử $\Z/4$ được thêm vào. Tóm lại ta có
+$$
+    H^i(SL_2(\Z[1/3]); \Z) \cong \begin{cases}
+        0                 & \text{nếu $i$ lẻ},            \\
+        \Z \oplus \Z/4    & \text{nếu $i=2$},             \\
+        \Z/12 \oplus \Z/4 & \text{nếu $i$ chẵn $\geq 2$}. \\
+    \end{cases}
+$$
+Với trường hợp $p = 2$ phức tạp hơn trường hợp trước ở chỗ $\Gamma(2)$ không tự do xoắn. Tuy nhiên ta có thể khắc phục bằng cách sử dụng $\PGam(2)$ để thay thế, nhóm này tự do có hạng bằng $2$, do đó ta có mở rộng
+$$
+    1 \rightarrow \PGam(2) \rightarrow \PGam_0(2) \rightarrow \Z/2 \rightarrow 1.
+$$
+Bằng cách phân tích tác động của chúng lên đồ thị tương ứng, ta có
+$$
+    H^*(\PGam_0(2);\Z) \cong \begin{cases}
+        \Z   & \text{nếu $i = 0$ hay $1$}, \\
+        \Z/2 & \text{nếu $i$ chẵn},        \\
+        0    & \text{còn lại}.
+    \end{cases}
+$$
+Từ đây suy ra
+$$
+    H^i(\Gamma_0(2);\Z) \cong \begin{cases}
+        \Z   & \text{nếu $i = 0$ hay $1$}, \\
+        \Z/4 & \text{nếu $i$ chẵn},        \\
+        \Z/2 & \text{còn lại}.
+    \end{cases}
+$$
+Tiếp tục sử dụng dãy khớp dài, ta có được $H^2(SL_2(\Z[1/2]); \Z) \cong \Z \oplus \Z/3$, nếu $i$ lẻ thì $H^i(SL_2(\Z[1/2]); \Z) = 0$, và trong trường hợp $i$ chẵn thì ta có dãy khớp
+$$
+    0 \rightarrow \Z/2 \rightarrow H^{2i}(SL_2(\Z[1/2]); \Z) \rightarrow \Z/12 \oplus \Z/3 \rightarrow 0.
+$$
+Nhìn thành phần $2$-nguyên sơ, ta thấy rằng $\Z/12$ có nhiều nhất một hạng tử trực tiếp cyclic. Trường hợp duy nhất là $\Z/8$, do đó
+$$
+    H^i(SL_2(\Z[1/2]); \Z) \cong \begin{cases}
+        0                 & \text{nếu $i$ lẻ},         \\
+        \Z \oplus \Z/3    & \text{nếu } i = 2,         \\
+        \Z/24 \oplus \Z/3 & \text{nếu } i = 2j, j > 1.
+    \end{cases}
+$$

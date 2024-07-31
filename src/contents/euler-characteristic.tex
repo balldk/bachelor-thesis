@@ -1,0 +1,268 @@
+
+\chapter{Đặc trưng Euler}
+Đặc trưng Euler là một đặc trưng ứng với các đối tượng hình học, được định nghĩa (không chính thức) là tổng xen dấu của số lượng các ô $n$ chiều. Các nhà toán học từ lâu đã nhận ra tính bất biến của đặc trưng Euler thông qua các khối đa diện lồi có đặc trưng Euler bằng $2$, trước cả sự ra đời của các nhánh toán học hiện đại như tôpô hay đại số đồng điều, song lại thiếu tính chặt chẽ.
+
+Bằng cách nhìn nhóm như một đối tượng tôpô, ta cũng mong muốn định nghĩa một bất biến như thế trên nhóm. Thật vậy, đặc trưng Euler trên nhóm cho ta nhiều thông tin phong phú liên quan đến các nhóm con hữu hạn. Phần này là một nổ lực trong việc trình bày lại các kết quả về đặc trưng Euler của nhóm với nội dung được tham khảo chủ yếu ở \cite[Chương~IX]{CohomBrown}.
+
+\section{Đặc trưng Euler của phức}
+\begin{define}
+    Cho $C$ là phức không âm của các nhóm Abel. Ta nói $C$ \textdef{hữu hạn chiều} nếu $C_i = 0$ với $i$ đủ lớn và giá trị $n$ nhỏ nhất sao cho $C_n \neq 0$ được gọi là \textdef{chiều} của $C$. Nếu thêm điều kiện $C_i$ hữu hạn sinh thì ta nói $C$ \textdef{hữu hạn}.
+
+    Giả sử $C$ hữu hạn chiều và $H_* C$ hữu hạn sinh. Khi đó ta định nghĩa \textdef{đặc trưng Euler} của $C$ là
+    $$
+        \chi(C) = \sum_{i \geq 0} (-1)^i \rank_{\Z} (H_i C).
+    $$
+    Nếu $X$ là CW-phức hữu hạn chiều thì ta kí hiệu $\chi(X)$ thay cho $\chi(C(X))$.
+\end{define}
+
+Mệnh đề sau chứng tỏ định nghĩa của ta là một mở rộng của định nghĩa cổ điển cho đặc trưng Euler:
+\begin{proposition}
+    Nếu $C$ là phức dây chuyền hữu hạn thì khi đó
+    $$
+        \chi(C) = \sum_{i \geq 0} (-1)^i \rank_{\Z}(C_i).
+    $$
+\end{proposition}
+\startproof Gọi $n$ là chiều của phức $(C,d)$. Từ hai dãy khớp ngắn
+$$
+    \begin{tikzcd}
+        0 \arrow[r] & \ker d_i \arrow[r, "i"] & C_i \arrow[r, "d_i"] & \im d_{i} \arrow[r] & 0\\
+        0 \arrow[r] & \im d_{i+1} \arrow[r, "i"] & \ker d_i \arrow[r, "\pi"] & H_i(C) \arrow[r] & 0
+    \end{tikzcd}
+$$
+ta có
+$$
+    \begin{cases}
+        \rank_{\Z} C_i = \rank_{\Z}\ker d_i + \rank_{\Z} \im d_{i} \\
+        \rank_{\Z}\ker d_i - \rank_{\Z} \im d_{i+1} = \rank_{\Z} H_i(K)
+    \end{cases}
+$$
+suy ra
+\begin{align*}
+    \chi(C) & = \sum_{i = 0}^n (-1)^i (\rank_{\Z} \ker d_i -  \rank_{\Z} \im d_{i+1})                     \\
+            & = \sum_{i=0}^n (-1)^i \rank_{\Z} \ker d_i + \sum_{i=0}^n (-1)^{i+1} \rank_{\Z} \im d_{i+1}.
+    % & = \sum_{i=0}^n (-1)^i \rank_{\Z} \ker d_i + \sum_{i=1}^{n+1} (-1)^{i} \rank_{\Z} \im d_{i+1}
+\end{align*}
+Do $\rank_{\Z} \im d_{n+1} = \rank_{\Z} \im d_{-1} = 0$ nên
+\begin{align*}
+    \chi(C) & = \sum_{i=0}^{n} (-1)^i \rank_{\Z} \ker d_i + \sum_{i=-1}^{n+1} (-1)^{i+1} \rank_{\Z} \im d_{i+1} \\
+            & = \sum_{i=0}^{n} (-1)^i \rank_{\Z} \ker d_i + \sum_{i=0}^{n} (-1)^{i} \rank_{\Z} \im d_{i}        \\
+            & = \sum_{i=0}^{n} (-1)^i (\rank_{\Z} \ker d_i + \rank_{\Z} \im d_{i+1})                            \\
+    \pushQED{\qed}
+            & = \sum_{i=0}^{n} (-1)^i \rank_{\Z}C_i.
+    \qedhere
+    \popQED
+\end{align*}
+
+\section{Đặc trưng Euler của nhóm}
+
+\begin{define}
+    Giả sử $\Gamma$ là nhóm sao cho $H_i \Gamma$ hữu hạn sinh với mọi $i$ và $H_i \Gamma$ hữu hạn với $i \geq n$ đủ lớn nào đó, khi đó ta đặt
+    $$
+        \tilde{\chi}(\Gamma) = \sum_i (-1)^i \rank_{\Z} (H_i \Gamma)
+    $$
+    là \textdef{đặc trưng Euler ngây thơ} của $\Gamma$.
+
+    Ta gọi định nghĩa này là ngây thơ vì ở đoạn sau ta sẽ nhận thấy giá trị tính từ $\tilde{\chi}(\Gamma)$ không cho ra đúng với đặc trưng Euler mà ta mong đợi.
+\end{define}
+
+\begin{define}
+    Cho $R$ là vành và $M$ là $R$-môđun. Ta định nghĩa
+    $$
+        \pd_R M = \inf \left\{ \text{độ dài các phép giải xạ ảnh của } M \right\}
+    $$
+    là \textdef{chiều xạ ảnh} của $M$. Nếu $M$ không có phép giải xạ ảnh với độ dài hữu hạn thì ta quy ước $\pd_R M = \infty$.
+\end{define}
+
+\begin{define}
+    Cho $\Gamma$ là nhóm, khi đó ta định nghĩa.
+    $$
+        \cd \Gamma = \inf\{ n\ |\ H^i(\Gamma, -) = 0, \forall i > n \}.
+    $$
+    là \textdef{chiều đối đồng điều} của nhóm $\Gamma$. Ngoài ra ta có thể chỉ ra rằng $\cd \Gamma = \pd_{\Z \Gamma} \Z$.
+\end{define}
+
+\begin{theorem}[Serre]\label{thm:serre-torsion}
+    Nếu $\Gamma$ là nhóm tự do xoắn và $\Gamma'$ là nhóm con có chỉ số hữu hạn thì khi đó $\cd \Gamma' = \cd \Gamma$.
+\end{theorem}
+
+\begin{corollary}\label{thm:vcd}
+    Mọi nhóm con tự do xoắn có chỉ số hữu hạn trong nhóm $\Gamma$ đều có cùng chiều đối đồng điều.
+\end{corollary}
+\startproof Giả sử $\Gamma'$ và $\Gamma''$ là các nhóm con tự do xoắn có chỉ số hữu hạn trong $\Gamma$ thì khi đó $\cd \Gamma' = \cd(\Gamma' \cap \Gamma'') = \cd \Gamma''$ theo Định lí \ref{thm:serre-torsion}.
+
+\begin{define}
+    Ta mong muốn định nghĩa tổng quát khái niệm chiều đối đồng điều cho một nhóm $\Gamma$ chứa phần tử xoắn bất kì. Hệ quả \ref{thm:vcd} cho ta thấy chiều đối đồng điều có tính nhất quán giữa các nhóm con có chỉ số hữu hạn trong $\Gamma$. Do đó ta định nghĩa \textdef{tựa chiều đối đồng điều} của $\Gamma$ là chiều đối đồng điều của một nhóm con tự do xoắn có chỉ số hữu hạn trong $\Gamma$, kí hiệu $\vcd \Gamma$. Nếu không tồn tại nhóm con tự do xoắn nào có chỉ số hữu hạn trong $\Gamma$ thì ta quy ước $\vcd \Gamma = \infty$.
+\end{define}
+
+\begin{define}
+    Ta nói nhóm $\Gamma$ có \textdef{loại đồng điều hữu hạn} nếu
+    \begin{enumerate}[(i)]
+        \item $\vcd \Gamma < \infty$.
+        \item Mọi $\Gamma$-môđun $M$ hữu hạn sinh theo nghĩa nhóm Abel đều có $H_i(\Gamma, M)$ hữu hạn sinh với mọi $i$.
+    \end{enumerate}
+\end{define}
+
+\begin{lemma}
+    Nếu $\Gamma$ là nhóm và $\Gamma'$ là nhóm con của $\Gamma$ với chỉ số hữu hạn, thì khi đó $\Gamma$ có loại đồng điều hữu hạn nếu và chỉ nếu $\Gamma'$ có loại đồng điều hữu hạn.
+\end{lemma}
+
+\begin{define}
+    Giả sử $\Gamma$ có loại đồng điều hữu hạn và tự do xoắn. Khi đó ta định nghĩa \textdef{đặc trưng Euler} của $\Gamma$ cho bởi
+    $$
+        \chi(\Gamma) = \sum_{i} (-1)^i \rank_{\Z}(H_i(\Gamma)).
+    $$
+\end{define}
+
+\begin{theorem}\label{thm:euler-cha}
+    Nếu $\Gamma$ là nhóm tự do xoắn có loại đồng điều hữu hạn và $\Gamma'$ là nhóm con có chỉ số hữu hạn, khi đó
+    $$
+        \chi(\Gamma') = (\Gamma : \Gamma') \chi(\Gamma).
+    $$
+\end{theorem}
+
+\begin{define}
+    Lấy ý tưởng từ Định lí \ref{thm:euler-cha}, ta có thể định nghĩa đặc trưng Euler của một nhóm có loại đồng điều hữu hạn với phần tử xoắn bất kì theo nghĩa
+    $$
+        \chi(\Gamma) = \frac{\chi(\Gamma')}{(\Gamma : \Gamma')} \in \Q.
+    $$
+    trong đó $\Gamma'$ là nhóm con tự do xoắn có chỉ số hữu hạn trong $\Gamma$.
+
+    Ta cần phải chứng tỏ định nghĩa trên không phụ thuộc vào cách chọn $\Gamma'$. Thật vậy, giả sử $\Gamma''$ cũng là nhóm con tự do xoắn có chỉ số hữu hạn trong $\Gamma$, đặt $\Gamma_0 = \Gamma \cap \Gamma''$, khi đó
+    $$
+        \frac{\chi(\Gamma')}{(\Gamma : \Gamma')} \stackrel{(\ref{thm:euler-cha})}{=} \frac{\chi(\Gamma_0) / (\Gamma' : \Gamma_0)}{(\Gamma : \Gamma')} = \frac{\chi(\Gamma_0)}{(\Gamma : \Gamma_0)}.
+    $$
+    Tương tự ta cũng có $\chi(\Gamma'') / (\Gamma : \Gamma'') = \chi(\Gamma_0) / (\Gamma : \Gamma_0)$.\qed
+\end{define}
+
+
+\begin{proposition}\label{prop:euler-list}
+    \begin{enumerate}[(a)]
+        \item Nếu $\Gamma$ là nhóm có loại đồng điều hữu hạn và $\Gamma' \leq \Gamma$ có chỉ số hữu hạn thì
+              $$
+                  \chi(\Gamma') = (\Gamma : \Gamma') \chi(\Gamma).
+              $$
+        \item Cho $1 \xrightarrow{} \Gamma' \xrightarrow{} \Gamma \xrightarrow{} \Gamma'' \xrightarrow{} 1$ là dãy khớp ngắn với $\Gamma$ và $\Gamma'$ là các nhóm có loại đồng điều hữu hạn, khi đó nếu $\Gamma$ tựa tự do xoắn thì $\Gamma$ có loại đồng điều hữu hạn và
+              $$
+                  \chi(\Gamma) = \chi(\Gamma') \chi(\Gamma'').
+              $$
+        \item Cho $\Gamma = \Gamma_1 *_A \Gamma_2$, trong đó $\Gamma_1$, $\Gamma_2$ và $A$ có loại đồng điều hữu hạn. Nếu $\Gamma$ tựa tự do xoắn thì khi đó $\Gamma$ cũng có loại đồng điều hữu hạn và
+              $$
+                  \chi(\Gamma) = \chi(\Gamma_1) + \chi(\Gamma_2) - \chi(A).
+              $$
+    \end{enumerate}
+\end{proposition}
+
+\begin{example}
+    Xét phân tích $SL_2(\Z) \cong \Z/4 *_{\Z/2} \Z/6$, khi đó
+    $$
+        \chi(SL_2(\Z)) = \frac{1}{4} + \frac{1}{6} - \frac{1}{2} = -\frac{1}{12}.
+    $$
+\end{example}
+
+Bằng cách tác động $\Gamma$ lên các CW-phức, ta có thể trích xuất được thông tin về $\chi(\Gamma)$. Do đó, một định nghĩa đặc trưng Euler mới được sinh ra đóng vai trò là một công cụ quan trọng.
+\begin{define}
+    Giả sử $X$ là $\Gamma$-phức sao cho
+    \begin{enumerate}[(i)]
+        \item Mọi nhóm con đẳng hướng $\Gamma_\sigma$ có loại đồng điều hữu hạn, với $\sigma$ là ô trong $X$.
+        \item Không gian quỹ đạo $X/\Gamma$ chỉ có hữu hạn các ô.
+    \end{enumerate}
+    Khi đó ta định nghĩa \textdef{đặc trưng Euler đẳng biến}
+    $$
+        \chi_{\Gamma}(X) = \sum_{\sigma \in E} (-1)^{\dim \sigma} \chi(\Gamma_\sigma).
+    $$
+    với $E$ là tập chứa các ô đại diện cho lớp quỹ đạo $X/\Gamma$. Để ý rằng $\chi(\Gamma) = \chi_{\Gamma}(\text{một điểm})$, do đó ta có thể coi đặc trưng Euler đẳng biến là một khái niệm tổng quát của đặc trưng Euler thông thường.
+\end{define}
+
+\section{Tính nguyên của $\chi(\Gamma)$}
+
+Cho $\Gamma$ là nhóm có loại đồng điều hữu hạn. Ta biết rằng $\chi(\Gamma) \in \Z$ nếu $\Gamma$ tự do xoắn, nghĩa là bằng một cách nào đó tính không nguyên của $\chi(\Gamma)$ bị ảnh hưởng do các phần tử xoắn của $\Gamma$.
+
+\begin{remark}\label{rem:integrity}
+    Giả sử $\chi(\Gamma) = n/m \in \Q$ với $(n,m) = 1$. Nếu $\Gamma'$ là nhóm con tự do xoắn có chỉ số hữu hạn thì $(\Gamma : \Gamma') \chi(\Gamma) = \chi(\Gamma') \in \Z$, nghĩa là $m | (\Gamma : \Gamma')$. Suy ra $m | d$ với
+    $$
+        d = \gcd\{ (\Gamma : \Gamma')\ |\ \Gamma' \leq \Gamma \text{ tự do xoắn có chỉ số hữu hạn}\}.
+    $$
+    Tóm lại, $d \cdot \chi(\Gamma) \in \Z$.
+\end{remark}
+
+\begin{define}
+    Nếu một phần tử của $\Gamma$ có cấp lũy thừa của $p$, với $p$ nguyên tố, thì ta nói phần tử đó $p$-xoắn.
+\end{define}
+
+\begin{lemma}
+    Các ước nguyên tố của $d$ chính là các số nguyên tố $p$ sao cho $\Gamma$ có phần tử $p$-xoắn, với $d$ được định nghĩa ở Nhận xét \ref{rem:integrity}.
+\end{lemma}
+\startproof Trước tiên ta nhận xét rằng nếu $H$ là nhóm con hữu hạn của $\Gamma$ và $\Gamma' \leq \Gamma$ là nhóm con tự do xoắn thì $H$ tác động tự do lên $\Gamma / \Gamma'$, hơn nữa nếu $(\Gamma:\Gamma')$ hữu hạn thì
+$$
+    (\Gamma:\Gamma') = \sum_{\gamma \in E} |H\gamma| = \sum_{\gamma \in E} |H:H_\gamma| = \sum_{\gamma \in E} |H| = |E| |H|.
+$$
+Do đó $|H| \mid (\Gamma : \Gamma')$, dẫn tới $|H| \mid d$. Cụ thể, nếu $\Gamma$ chứa phần tử $p$-xoắn $\gamma$ thì nhóm con sinh bởi $\gamma$ có cấp là lũy thừa của $p$, theo Bổ đề Cauchy thì $\Gamma$ chứa nhóm con cấp $p$, do đó $p \mid d$.
+
+Ngược lại, giả sử $p$ là ước nguyên tố của $d$ nhưng $\Gamma$ không chứa phần tử $p$-xoắn. Xét $\Gamma_0$ là nhóm con tự do xoắn chuẩn tắc trong $\Gamma$. Trước hết ta có $p \mid (\Gamma : \Gamma_0)$ do $p \mid d$, dẫn đến tồn tại nhóm con $p$-Sylow $\Gamma' / \Gamma_0$ của $\Gamma / \Gamma_0$, với $\Gamma_0 \leq \Gamma' \leq \Gamma$. Khi đó $(\Gamma':\Gamma_0)$ là lũy thừa của $p$ và $p$ không là ước của $(\Gamma:\Gamma')$. ..., suy ra $\Gamma'$ tự do xoắn, nghĩa là $d \mid (\Gamma:\Gamma')$, khi đó thì $p \nmid d$ (mâu thuẫn).\qed
+
+\begin{theorem}\label{thm:euler-lcm}
+    Cho $\Gamma$ là nhóm có loại đồng điều hữu hạn và
+    $$
+        m = \lcm\{ |H| \mid H \leq \Gamma \text{ hữu hạn}\}.
+    $$
+    Khi đó $m \cdot \chi(\Gamma) \in \Z$. Hệ quả là nếu mẫu của $\chi(\Gamma)$ chia hết cho lũy thừa số nguyên tố $p^a$ thì $\Gamma$ có nhóm con cấp $p^a$.
+    % yeeu hg nhat the gioi
+\end{theorem}
+
+\begin{corollary}
+    Xét mở rộng nhóm $1 \xrightarrow{} \Gamma \xrightarrow{} E \xrightarrow{} G \xrightarrow{} 1$ với $\Gamma$ là nhóm tự do xoắn có loại đồng điều hữu hạn và $G$ là $p$-nhóm. Khi đó nếu $p \nmid \chi(\Gamma)$ thì mở rộng này chẻ.
+\end{corollary}
+
+\startproof Trước tiên theo Mệnh đề \ref{prop:euler-list}, ta có $\chi(E) = \chi(\Gamma) / |G|$, hơn nữa do $p \nmid \chi(\Gamma)$ nên đây là phân số tối giản. Vậy nên theo Định lí \ref{thm:euler-lcm}, tồn tại nhóm con $\tilde{G}$ của $E$ có cấp bằng cấp của $G$. Cuối cùng, do $\Gamma$ tự do xoắn nên $\tilde{G} \cong G$, vậy mở rộng này chẻ.\qed
+
+\begin{define}
+    Ta nói $\Gamma$-phức $X$ là \textdef{chấp nhận được} nếu với $\sigma$ là ô trong $\Gamma$ thì $\Gamma_{\sigma}$ cố định $\sigma$ từng điểm, nghĩa là $\gamma x = x$ với mọi $x \in \sigma$ và $\gamma \in \Gamma_{\sigma}$.
+\end{define}
+
+\begin{theorem}\label{thm:vcd-complex}
+    Cho $\Gamma$ là nhóm tựa tự do xoắn. Khi đó $\vcd \Gamma$ hữu hạn khi và chỉ khi tồn tại $\Gamma$-phức $X$ thật sự, co lại được và hữu hạn chiều. Hơn nữa nếu $\vcd \Gamma$ hữu hạn thì ta có thể chọn phức $X$ chấp nhận được.
+\end{theorem}
+
+\begin{theorem}
+    Cho $G$ là nhóm hữu hạn và $Y$ là $G$-phức hữu hạn chiều chấp nhận được, với $H_*Y$ hữu hạn sinh. Khi đó nếu $k \mid |Gy|$ với mọi $y \in Y$ thì $k \mid \chi(Y)$.
+\end{theorem}\label{thm:divide-orbit}
+
+Ta sẽ dựa trên kết quả trên để chứng minh Định lí \ref{thm:euler-lcm}:
+
+\textdef{Chứng minh Định lí \ref{thm:euler-lcm}:}\enskip Chọn $\Gamma$-phức $X$ lấy từ Định lí \ref{thm:vcd-complex}. Xét $\Gamma' \leq \Gamma$ là nhóm con tự do xoắn chuẩn tắc với chỉ số hữu hạn. Khi đó $\Gamma'$ tác động tự do lên $X$ do các nhóm con đẳng hướng $\Gamma_{\sigma}$ hữu hạn, và không gian quỹ đạo $Y = X / \Gamma'$ là không gian phân loại của $\Gamma'$. Do đó
+$$
+    \chi(\Gamma) = \frac{\tilde{\chi}(\Gamma')}{(\Gamma:\Gamma')} = \frac{\chi(Y)}{(\Gamma:\Gamma')}.
+$$
+Ta mong muốn chứng tỏ
+$$
+    \frac{m}{(\Gamma:\Gamma')} \chi(Y) \in \Z,
+$$
+nhớ rằng cấp của các nhóm con hữu hạn trong $\Gamma$ chia hết cho $(\Gamma:\Gamma')$ nên $m$ chia hết cho $(\Gamma:\Gamma')$. Dẫn đến $k = (\Gamma:\Gamma')/m$ là số nguyên và ta chỉ cần chứng tỏ $k \mid \chi(Y)$ là đủ.
+
+Đặt $G$ là nhóm thương hữu hạn $\Gamma/\Gamma'$. Tác động của $\Gamma$ lên $X$ cảm sinh một tác động tự nhiên từ $G$ lên $Y$. Ta sẽ chứng minh rằng $\pi(\Gamma_\sigma) = G_\tau$, trong đó $\sigma$ là ô trong $X$, $\tau = \sigma \Gamma'$ là ô trong $Y$ và $\pi: \Gamma \rightarrow G$ là toàn cấu tự nhiên. Giả sử $g \tau = \tau$ và xét $\gamma \in \Gamma$ sao cho $\pi(\gamma) = g$. Đầu tiên ta có $\gamma \sigma$ và $\sigma$ cùng thuộc quỹ đạo $\tau$. Do đó tồn tại $\gamma' \in \Gamma'$ sao cho $\gamma' \gamma \sigma = \sigma$, trong đó $\pi(\gamma' \gamma) = \pi(\gamma) = g$. Vậy $G_\tau \subset \pi(\Gamma_\sigma)$. Bao hàm thức ngược lại là hiển nhiên.
+
+Từ đây ta có tác động của $G$ lên $Y$ cũng chấp nhận được và $|G_\tau| \mid |\Gamma_\sigma|$. Nhưng vì $|\Gamma_\sigma| \mid m$ nên $|G_\tau| \mid m$. Do đó lực lượng của quỹ đạo $|G\tau| = |G| / |G_\tau|$ chia hết cho $k = |G|/m$. Theo Định lí \ref{thm:divide-orbit} thì $k \mid \chi(Y)$.\qed
+
+% \section{Phần thập phân của $\chi(\Gamma)$}
+
+% \begin{define}
+%     Cho $S$ là một tập sắp thứ tự. Ta có thể xây dựng cấu trúc phức đơn hình trên $S$ với đỉnh là các phần tử trong $S$ và một đơn hình $n$ chiều trong $S$ là một quan hệ dây chuyền
+%     $$
+%         s_0 < s_1 < ... < s_n.
+%     $$
+%     Nếu $\Gamma$ tác động lên $S$ bảo toàn quan hệ thứ tự thì $\Gamma$ cảm sinh một tác động lên $|S|$, khi đó ta đặt
+%     $$
+%         \chi_{\Gamma}(S) = \chi_{\Gamma}(|S|)
+%     $$
+%     trong trường hợp đặc trưng ở vế phải tồn tại.
+% \end{define}
+
+% \begin{lemma}
+%     Cho $S$ là một tập sắp thứ tự với phần tử lớn nhất hoặc nhỏ nhất. Khi đó $|S|$ co rút được.
+% \end{lemma}
+
+% \startproof $|S|$ là một hình nón trên $|S \setminus \{s\}|$ với $s$ là phần tử nhỏ nhất hoặc lớn nhất. Do đó $|S|$ co rút được.\qed
+
+% \begin{proposition}
+
+% \end{proposition}

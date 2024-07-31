@@ -1,0 +1,21 @@
+\newtheoremstyle{customstyle}
+{1em} % Space above
+{\topsep} % Space below
+{} % Body font
+{} % Indent amount
+{\bfseries} % Theorem head font
+{.} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{} % Theorem head spec (can be left empty, meaning `normal')
+\theoremstyle{customstyle}
+\newtheorem{define}{Định nghĩa}[section]
+\newtheorem{define_theorem}[define]{Định nghĩa + Định lí}
+\newtheorem{example}[define]{Ví dụ}
+\newtheorem{notation}[define]{Kí hiệu}
+\newtheorem{remark}[define]{Nhận xét}
+\newtheorem{lemma}[define]{Bổ đề}
+\newtheorem{theorem}[define]{Định lí}
+\newtheorem{proposition}[define]{Mệnh đề}
+\newtheorem{corollary}[define]{Hệ quả}
+
+\newcommand{\startproof}{\vspace{-0.4cm}\noindent\textit{Chứng minh.\enskip}}

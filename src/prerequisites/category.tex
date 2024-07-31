@@ -1,0 +1,86 @@
+
+\section{Lý thuyết phạm trù}
+\begin{define}
+    Một \textdef{phạm trù} $\mathcal{C}$ được cấu thành từ ba thành phần:
+    \begin{enumerate}[(i)]
+        \item Họ các \textdef{vật} $\ob(\mathcal{C})$.
+        \item Tập các \textdef{cấu xạ} $\Hom(A,B)$ ứng với mỗi cặp vật $(A,B)$.
+        \item \textdef{Phép hợp nối} $\circ: \Hom(A,B) \times \Hom(B,C) \rightarrow \Hom(A,C)$.
+    \end{enumerate}
+    Trong đó ta kí hiệu một cấu xạ $f \in \Hom(A,B)$ là $f: A \rightarrow B$ hay $A \xrightarrow{f} B$. Hợp nối giữa hai cấu xạ $\circ(f,g)$ thường được kí hiệu là $g \circ f$ hay $gf$. Các thành phần này phải thỏa các tính chất:
+    \begin{enumerate}[(i)]
+        \item $\Hom(A,B) \cap \Hom(A',B') = \varnothing$, với mọi $(A,B) \neq (A',B')$. Nghĩa là mỗi cấu xạ $f \in \Hom(A,B)$ có duy nhất tập nguồn $A$ và tập đích $B$.
+        \item Ứng với mỗi vật $A$, tồn tại \textdef{cấu xạ đơn vị} $1_A \in \Hom(A,A)$ thỏa $f 1_A = 1_A f = f$ với mọi $f: A \rightarrow B$.
+        \item Phép hợp nối có tính kết hợp, nghĩa là với các cấu xạ $A \xrightarrow{f} B \xrightarrow{g} C$ thì
+              $$
+                  h(gf) = (hg)f.
+              $$
+    \end{enumerate}
+    Nếu $\ob{\mathcal{C}}$ là tập hợp thì ta nói $\mathcal{C}$ là \textdef{phạm trù nhỏ}.
+\end{define}
+
+\begin{example}
+    Phạm trù \textbf{Grp} là phạm trù mà các vật là các nhóm, cấu xạ là đồng cấu và phép hợp nối là phép hợp nối ánh xạ thông thường.
+
+    Tương tự ta cũng có phạm trù $_R$\textbf{Mod} (tương ứng \textbf{Mod}$_R$) là phạm trù các $R$-môđun trái (tương ứng phải) với cấu xạ là đồng cấu $R$-môđun.
+
+    Phạm trù \textbf{Top} là phạm trù mà các vật là không gian tôpô và cấu xạ là ánh xạ liên tục.
+\end{example}
+
+\begin{define}
+    Cho $\mathcal{C}$ và $\mathcal{D}$ là hai phạm trù, khi đó một \textdef{hàm tử} $T: \mathcal{C} \rightarrow \mathcal{D}$ là một hàm biến vật thành vật, cấu xạ thành cấu xạ thỏa:
+    \begin{enumerate}[(i)]
+        \item Nếu $A \in \ob(\mathcal{C})$ thì $T(A) \in \ob(\mathcal{D})$
+        \item Nếu $f: A \rightarrow B$ là cấu xạ trong $\mathcal{C}$ thì $T(f): T(A) \rightarrow T(B)$ là cấu xạ trong trong $\mathcal{D}$.
+        \item Nếu $A \xrightarrow{f} B \xrightarrow{g} C$ là các cấu xạ trong $\mathcal{C}$ thì $T(A) \xrightarrow{T(f)} T(B) \xrightarrow{T(g)} T(c)$ là các cấu xạ trong $\mathcal{D}$ và
+              $$
+                  T(gf) = T(g)T(f)
+              $$
+        \item $T(1_A) = 1_{T(A)}$ với mọi $A \in \ob(\mathcal{C})$.
+    \end{enumerate}
+\end{define}
+
+\begin{define}
+    \textdef{Tập tiền thứ tự} $I$ là một tập được trang bị quan hệ $\leq$ có tính phản xạ và bắc cầu.
+
+    Nếu $I \neq \varnothing$ và thỏa thêm tính chất: hai phần tử $x,y$ bất kì trong $I$ đều có chặn trên, nghĩa là tồn tại $z \in I$ sao cho $x \leq z$ và $y \leq z$ thì ta gọi $(I,\leq)$ là \textdef{tập định hướng}.
+\end{define}
+
+\begin{remark}
+    Tập tiền thứ tự $(I,\leq)$ có thể được coi là một phạm trù theo nghĩa $\ob(I) = I$,
+    $$
+        \Hom(x,y) = \begin{cases}
+            \varnothing    & \text{nếu } x \not\leq y \\
+            \{\iota_{xy}\} & \text{nếu } x \leq y
+        \end{cases}
+    $$
+    Phép hợp nối được định nghĩa bởi $\iota_{yz} \iota_{xy} = \iota_{xz}$, trong đó $x \leq y$ và $y \leq z$ với $x,y,z\in I$. Quan hệ phản xạ $x \leq x$ được coi là cấu xạ đơn vị trong phạm trù này ($\iota_{xx} \in \Hom(x,x)$).
+
+    Ngược lại, một phạm trù nhỏ thỏa $|\Hom(x,y)| \leq 1$ và $|Hom(x,x)| = 1$ có thể coi là một tập tiền thứ tự với các phần tử là các vật và $x \leq y$ khi và chỉ khi $|\Hom(x,y)| = 1$.
+\end{remark}
+
+\begin{define}
+    Cho $(I,\leq)$ là tập tiền thứ tự và $\mathcal{C}$ là phạm trù bất kì. Một \textdef{hệ thuận} trong $\mathcal{C}$ (trên $I$) là một họ các vật $\{X_i\}_{i \in I}$ và cấu xạ $\{ \phi_{ij}: X_i \rightarrow X_j \}_{i \leq j}$ sao cho $\phi_{ii} = 1_{X_i}$ và nếu $i \leq j \leq k$ thì biểu đồ sau giao hoán
+    $$
+        \begin{tikzcd}
+            X_i \arrow[rr, "\phi_{ij}"] \arrow[rd, "\phi_{ik}"'] &     & X_j \arrow[ld, "\phi_{jk}"] \\
+            & X_k &
+        \end{tikzcd}
+    $$
+    Để ý ta có thể phát biểu ngắn gọn hơn rằng một hệ thuận trong $\mathcal{C}$ là một hàm tử $X: (I,\leq) \rightarrow \mathcal{C}$, trong đó ta kí hiệu $X_i = X(i)$ và $\phi_{ij} = X(\iota_{ij})$.
+    % là một hàm tử $T: I \rightarrow \mathcal{C}$, trong đó ta kí hiệu $X_i = T(i)$ và $\phi_{ij} = T(\iota_{ij})$. Nói một cách cụ thể hơn thì một hệ thuận
+\end{define}
+
+\begin{define}\label{def:direct-limit}
+    Cho $(I,\leq)$ là tập tiền thứ tự, $\mathcal{C}$ là phạm trù và $\{X_i, \phi_{ij}\}$ là hệ thuận trong $\mathcal{C}$ trên $I$. \textdef{Giới hạn thuận} của hệ trên là một vật $X = \varinjlim X_i$ và các cấu xạ $f_i: X_i \rightarrow X$ sao cho $f_j \circ \phi_{ij} = f_i$. Hơn nữa chúng phổ dụng với tính chất trên theo nghĩa, nếu $Y$ là một vật và $g_i: X_i \rightarrow Y$ là họ các cấu xạ thỏa $g_j \circ \phi_{ij} = g_i$ thì khi đó tồn tại duy nhất một cấu xạ $g: X \rightarrow Y$ sao cho $g_i = g \circ f_i$.
+
+    Định nghĩa trên có thể được tóm tắt thông qua biểu đồ giao hoán sau
+
+    $$
+        \begin{tikzcd}
+            X_i \arrow[rr, "\phi_{ij}"] \arrow[rd, "f_i"] \arrow[rdd, "g_i"', bend right] &                          & X_i \arrow[ld, "f_j"'] \arrow[ldd, "g_j", bend left] \\
+            & X \arrow[d, "h", dashed] &                                                      \\
+            & Y                        &
+        \end{tikzcd}
+    $$
+\end{define}

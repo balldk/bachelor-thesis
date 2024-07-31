@@ -1,0 +1,26 @@
+
+\chapter*{Lời mở đầu}
+\addcontentsline{toc}{chapter}{Lời mở đầu}
+% Trong các loại đối như đối đáp, đối xử, đối đãi, đối nhân xử thế,... thì em thích nhất là đối đồng điều.
+Đối đồng điều của nhóm số học nói riêng và nhóm rời rạc trên nhóm đại số nói chung có liên hệ mật thiết đến lí thuyết số hiện đại, cụ thể là dạng tự đẳng cấu cũng như $L$-hàm \cite{VenCohomAriGroup}. Hay vào năm 1971, G. Harder đưa ra công thức Gauss-Bonnet cho nhóm số học cùng với công thức liên hệ giữa đặc trưng Euler của chúng với các giá trị của hàm zeta Riemann \cite{HarderGaussBonnet}. Một cách tự nhiên, ta có thể tổng quát khái niệm nhóm số học bằng cách xét tính nguyên của các điểm trên nhóm đại số ở ngoài tập hữu hạn các số nguyên tố $S$, ta gọi một nhóm như vậy là nhóm $S$-số học. Trong bài khóa luận này, tôi sẽ không trình bày những mối liên hệ kể trên mà tập trung tính toán xoay quanh một lớp các nhóm $S$-số học có dạng $SL_2[1/m]$, với $m$ là tích các số nguyên tố phân biệt.
+
+Công cuộc tính đối đồng điều của $SL_2[1/m]$ có thể nói được bắt nguồn từ sự phân tích của Serre \cite{TreeSerre}
+$$
+    SL_2(\Z[1/m]) \cong SL_2(\Z[1/m']) *_{\Gamma_0(p)} SL_2(\Z[1/m']),
+$$
+trong đó $m = pm'$, $m'$ là số nguyên không có ước nguyên tố $p$ và $\Gamma_0(p)$ là nhóm con đồng dư mức $p$ của $SL_2(\Z[1/m])$. Bằng cách sử dụng dãy khớp dài cho tích amalgam, ta có thể đưa bài toán tính đối đồng điều của nhóm lớn $SL_2(\Z[1/m])$ thành bài toán tính đối đồng điều của nhóm nhỏ hơn $SL_2(\Z[1/m'])$ và nhóm con đồng dư.
+
+Trường hợp $m=p$ đã được A. Adem và N. Naffah giải quyết triệt để vào năm 1998 \cite{AdemSL2}. Năm 2014, TS. Bùi Anh Tuấn và GS. Graham Ellis đã đưa ra thuật toán tổng quát để tính đồng điều của $SL_2(\Z[1/m])$ \cite{TuanHomSL2}, nhưng tính toán thực tế chỉ khả thi trong trường hợp $m$ nhỏ ($m \leq 50$). Năm 2016, Hutchinson tính được đồng điều thứ hai khi $m$ là bội của $6$ \cite{HutchinsonSecondHom}, phương pháp của Hutchinson thậm chí có thể mở rộng được cho một lớp các nhóm $S$-số học rộng hơn. Năm 2024, Carl-Fredrik tính được đồng điều thứ nhất cho trường hợp $m$ bất kì \cite{CarlAbelSL2}. Tóm lại, đối đồng điều thứ $n$ của $SL_2(\Z[1/m])$ vẫn là một câu hỏi mở. Do giới hạn về mặt thời gian nên trong bài khóa luận này, tôi chỉ trình bày trong trường hợp $m = 1$, $m = p$ nguyên tố (kết quả Adem) và $n=1$, $m$ bất kì (kết quả của Carl-Fredrik). Hơn nữa ở chương 5 tôi sẽ trình bày sơ lược về đặc trưng Euler của nhóm, đây là một công cụ cung cấp cho ta nhiều thông tin phong phú của một nhóm và đối đồng điều của nhóm đó.
+
+Luận văn này gồm 5 chương:
+\begin{itemize}
+    \item \textbf{Chương 1. Kiến thức chuẩn bị:} Trình bày vắn tắt về những lý thuyết và công cụ cần thiết bao gồm lý thuyết phạm trù, lý thuyết Bass-Serre, đối đồng điều nhóm, nhóm $S$-số học và dãy phổ.
+
+    \item \textbf{Chương 2. Biểu diễn và đối đồng điều của $SL_2(\Z)$:} Trình bày về sự phân tích amalgam của nhóm $SL_2(\Z)$ bằng lý thuyết Bass-Serre. Từ đó tính đối đồng điều của nhóm đó.
+
+    \item \textbf{Chương 3. Đồng điều thứ nhất của $SL_2(\Z[1/m])$:} Trình bày lại công trình của Carl-Fredrik về tính toán đồng điều thứ nhất của $SL_2(\Z[1/m])$ bất kì thông qua abel hóa.
+
+    \item \textbf{Chương 4. Đối đồng điều của $SL_2(\Z[1/p])$:} Trình bày lại công trình của Adem và Naffah về tính toán đối đồng điều của $SL_2(\Z[1/p])$ với $p$ nguyên tố.
+
+    \item \textbf{Chương 5. Đặc trưng Euler:} Trình bày về đặc trưng Euler của nhóm, tính chất của chúng và một số định lí quan trọng để đưa ra thông tin cho nhóm ban đầu.
+\end{itemize}

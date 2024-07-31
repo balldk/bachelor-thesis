@@ -1,0 +1,259 @@
+\section{(Đối) đồng điều nhóm}
+
+\begin{define}[\cite{ClaraGroupCohom}]
+    Cho $G$ là nhóm và $R$ là vành giao hoán. Ta định nghĩa \textdef{vành nhóm} $RG$ là $R$-môđun tự do sinh bởi các phần tử trong $G$. Do đó mỗi phần tử trong $RG$ có biểu diễn duy nhất dưới dạng tổng hữu hạn $\sum_{g \in G} a_g g$, trong đó $a_g \in R,\ g \in G$. Hơn nữa $RG$ có cấu trúc vành cho bởi phép nhân
+    $$
+        \left(\sum_{g\in G}a_g g\right)\left(\sum_{g\in G}b_g g\right) = \sum_{g\in G} \left(\sum_{h \in G}a_h b_{h^{-1}g}\right) g.
+    $$
+\end{define}
+
+\begin{define}
+    Nếu nhóm $G$ tác động lên tập $M$ thì ta có thể coi $M$ là một $\Z G$-môđun, hay ngắn gọn hơn, ta gọi $M$ là một \textdef{$G$-môđun}.
+\end{define}
+
+\begin{define}
+    Một $G$-môđun $M$ được gọi là \textdef{tầm thường} nếu $gm = m$ với mọi $g \in G$ và $m \in M$.
+\end{define}
+
+Nếu không giải thích gì thêm thì ta mặc định cấu trúc $G$-môđun của $\Z$ là tầm thường.
+
+\begin{define}
+    Cho $G$ là nhóm và $M$ là một $G$-môđun. Ta định nghĩa
+    $$
+        H_n(G;M) = \Tor_n^{\Z G}(\Z,M)
+    $$
+    là \textdef{đồng điều thứ $n$ của nhóm $G$ với hệ số $M$}. Tương tự ta định nghĩa
+    $$
+        H^n(G;M) = \Ext^n_{\Z G}(\Z,M).
+    $$
+    là \textdef{đối đồng điều thứ $n$ của nhóm $G$ với hệ số $M$}. Trong trường hợp hệ số $M = \Z$ thì ta gọi đơn giản $H_n(G;\Z)$ và $H^n(G;\Z)$ là đồng điều và đối đồng điều thứ $n$ của nhóm $G$.
+\end{define}
+
+\begin{define}[\cite{ClaraGroupCohom}]
+    Cho $G$ là nhóm và $M$ là một $G$-môđun. Ta định nghĩa
+    $$
+        M^G = \{ m \in M\ |\ gm = m \}
+    $$
+    là \textdef{nhóm các bất biến} của $M$ và
+    $$
+        M_G = M / \langle g m - m\ |\ g \in G, m \in M \rangle_\Z
+    $$
+    là \textdef{nhóm các đối bất biến} của $M$. Có thể hiểu $M^G$ là nhóm con lớn nhất của $M$ mà $G$ tác động tầm thường lên, trong khi đó $M_G$ là nhóm thương lớn nhất của $M$ để  $G$ tác động tầm thường. Ta có thể kiểm tra được
+    \begin{align*}
+        \cdot_G: {}_{\Z G}\textbf{Mod} \rightarrow {}_{\Z}\textbf{Mod} \\
+        \cdot^G: {}_{\Z G}\textbf{Mod} \rightarrow {}_{\Z}\textbf{Mod}
+    \end{align*}
+    lần lượt là hàm tử và phản hàm tử.
+\end{define}
+
+\begin{proposition}[\cite{ClaraGroupCohom}]
+    Cho $G$ là nhóm và $M$ là một $G$-môđun. Khi đó
+    \begin{align*}
+        M_G & \longrightarrow M \otimes_G \Z \\
+        [a] & \longmapsto a \otimes 1
+    \end{align*}
+    và
+    \begin{align*}
+        M^G & \longrightarrow \Hom_G(\Z,M)      \\
+        a   & \longmapsto (n \mapsto n \cdot a)
+    \end{align*}
+    là các đẳng cấu nhóm. Điều này cũng có nghĩa là $H_0(G;M) \cong M_G$ và $H^0(G;M) \cong M^G$.
+\end{proposition}
+
+\begin{theorem}[\cite{ClaraGroupCohom}]\label{thm:first-homology}
+    Cho $G$ là nhóm. Khi đó
+    $$
+        H_1(G;\Z) \cong G^{\ab} = G/[G,G].
+    $$
+\end{theorem}
+\startproof Xem \cite[Định lí 1.4.1]{ClaraGroupCohom}.
+
+\begin{proposition}\label{prop:cohom-coef-prod}
+    Cho tích $M = \prod_i M_i$ các $G$-môđun, khi đó bản thân $M$ có cấu trúc $G$-môđun thông qua tác động đường chéo
+    $$
+        g(m_1,m_2,...) = (gm_1, gm_2,...).
+    $$
+    Hơn nữa
+    $$
+        H^k(G; M) \cong \prod_i H^r(G; M_i).
+    $$
+\end{proposition}
+
+\subsection{(Đối) đồng điều nhóm với góc nhìn tôpô}
+Ở phần này ta sẽ thấy rằng bằng cách coi $G$ như một không gian tôpô thông qua không gian phân loại thì (đối) đồng điều mà ta định nghĩa trên nhóm cũng chính là (đối) đồng điều trên tôpô theo nghĩa cổ điển.
+
+\begin{proposition}\label{prop:free-G-action}
+    Cho nhóm $G$ tác động tự do lên $X$ và $E$ là tập các phần tử đại diện của các $G$-quỹ đạo trong $X$. Khi đó $X$ là một $\Z G$-môđun tự do với cơ sở $E$.
+\end{proposition}
+\startproof
+Ta biết rằng $G(x)$ và $G/G_x$ có cùng lực lượng, hơn nữa $G/G_x \cong G$ do $G$ tác động tự do lên $X$, do đó
+$$
+    \Z[X] = \Z\left[\bigsqcup_{x \in E} G(x)\right] = \bigoplus_{x \in E} \Z[G(x)] \cong \bigoplus_{x \in E} \Z[G/G_x] \cong \bigoplus_{x \in E} \Z G.
+    \eqno\qed
+$$
+\begin{define}[\cite{CohomBrown}]
+    Cho $G$ là nhóm, ta nói $X$ là một \textdef{$G$-phức} nếu $X$ là CW-phức với tác động $G$ lên các ô của $X$. Từ đó $G$ cũng cảm sinh ra một tác động lên $X$. Nếu tác động này là tác động tự do thì ta nói $X$ là một \textdef{$G$-phức tự do}.
+\end{define}
+
+Nếu $X$ là $G$-phức thì tác động của $G$ lên các ô của $X$ mở rộng thành tác động lên $C_n(X)$, khi đó $C(X)$ trở thành phức dây chuyền của các $G$-môđun. Hơn nữa \textdef{ánh xạ tăng cường} (augmentation map) $\varepsilon: C_0(X) \rightarrow \Z$ cho bởi $\varepsilon(v) = 1$ là đồng cấu $G$-môđun thỏa $\varepsilon \circ d = 0$. Khi đó $C_*(X) \xrightarrow{\varepsilon} \Z$ là một dãy phức các $G$-môđun, ta gọi là \textdef{dãy phức ô tăng cường} (augmented
+cellular chain complex).
+
+\begin{proposition}[\cite{CohomBrown}]\label{prop:free-cell-resolution}
+    Cho $X$ là $G$-phức tự do co rút được. Khi đó dãy phức ô tăng cường trên là một phép giải tự do.
+\end{proposition}
+\startproof Từ Mệnh đề \ref{prop:free-G-action} ta có $C_*(X)$ là các $G$-môđun tự do, tính khớp được suy ra từ việc tất cả các đồng điều của $C_*(X)$ bằng $0$.\qed
+
+\begin{remark}
+    Giả sử $Y$ là CW-phức và $p: \tilde{Y} \rightarrow Y$ là một ánh xạ phủ chính quy với $G$ là nhóm các biến đổi phủ (deck transformation). Khi đó $\tilde{Y}$ là một $G$-phức tự do và $C_*(\tilde{Y})$ là $G$-môđun tự do có cơ sở là các ô trong $Y$.
+    % TOPROOF
+\end{remark}
+
+\begin{define}[\cite{CohomBrown}]
+    Với góc nhìn ở nhận xét trên và Mệnh đề \ref{prop:free-cell-resolution} thì ta mong muốn sự tồn tại của một CW-phức $Y$ thỏa các tính chất:
+    \begin{enumerate}[(i)]
+        \item $Y$ liên thông.
+        \item $\pi_1(Y) = G$.
+        \item Phủ phổ dụng của $Y$ co rút được.
+    \end{enumerate}
+    Một phức $Y$ như vậy được gọi là \textbf{không gian phân loại của} $G$ hay \textbf{phức Eilenberg-Maclane loại} $(G,1)$, hay đơn giản hơn là $K(G,1)$-phức. Cuối cùng từ các ý tưởng trên ta có mệnh đề sau.
+\end{define}
+
+\begin{proposition}[\cite{CohomBrown}]
+    Nếu $Y$ là không gian phân loại của $G$ với phủ phổ dụng $X$. Khi đó dãy phức ô tăng cường $C_*(X) \rightarrow \Z$ là một phép giải tự do của $\Z$ trên $\Z G$.
+\end{proposition}
+
+Hơn nữa ta có thể chỉ ra được sự tồn tại của không gian phân loại của $G$.
+% \begin{define}
+%     Một \textdef{đơn hình chuẩn $n$ chiều} $\Delta_n$ được định nghĩa là bao đóng lồi của $n+1$ điểm $(1,0,...,0), (0,1,...,0),...,(0,0,...,1) \in \R^{n+1}$ với tôpô cảm sinh từ tôpô Euclid trên $\R^{n+1}$. Bao đóng lồi của một tập con bất kì của $n+1$ điểm trên được gọi là \textdef{mặt} của $\Delta_n$.
+
+%     Một cấu trúc \textdef{$\Delta$-phức} của không gian tôpô $X$ là một họ các ánh xạ liên tục $K = \{\sigma_\alpha: \Delta_{n_\alpha} \rightarrow X\}_{\alpha \in I}$ thỏa:
+%     \begin{itemize}
+%         \item $\sigma_{\alpha}$ giới hạn trên $\interior(\Delta_{n_\alpha})$ là đơn ánh và ảnh của chúng rời nhau đôi một.
+%         \item Giới hạn của $\sigma_\alpha$ lên mặt bất kì của $\Delta_{n_\alpha}$ là một $\sigma_\beta: \Delta_{n_\alpha -  1} \rightarrow X$ nào đó.
+%         \item $A \subset X$ mở khi và chỉ khi $\sigma_\alpha^{-1}(A)$ mở trong $\Delta_{n_\alpha}$ với mọi $\alpha$.
+%     \end{itemize}
+%     Ảnh của $\sigma_\alpha$ được gọi là một \textdef{đơn hình $n_\alpha$ chiều}.
+% \end{define}
+
+\begin{proposition}
+    Mọi nhóm đều có không gian phân loại.
+\end{proposition}
+\startproof Cho $G$ là một nhóm. Ta sẽ đi xây dựng phức đơn hình $EG$ như sau: mỗi bộ $n+1$ phần tử $[g_0,...,g_n]$ trong $G$ là một phức đơn hình $n$ chiều của $EG$. $EG$ co rút được thông qua phép đồng luân $h_t$ đẩy một phần tử $x \in [g_0,...,g_n]$ đến điểm $[e]$ theo đoạn thẳng trong $[e,g_0,...,g_n]$.
+
+$G$ tác động lên $EG$ thông qua phép nhân trái
+$$
+    g \cdot [g_0,...,g_n] = [gg_0,...,gg_n].
+$$
+Hơn nữa ta có thể kiểm tra được tác động này là một tác động phủ. Do đó ánh xạ thương $EG \rightarrow EG / G$ là một phủ phổ dụng của không gian quỹ đạo $BG = EG/G$. Vậy $BG$ chính là một không gian phân loại của $G$.\qed
+% \startproof Cho $G$ là một nhóm và đặt $EG$ là $\Delta$-phức với đơn hình $n$ chiều trong $EG$ có dạng một bộ $n+1$ phần tử $[g_0,...,g_n]$ trong $G$.
+
+\begin{proposition}
+    Nếu $Y$ là không gian phân loại của $G$. Khi đó $H_*(Y) \cong H_*(G)$ và $H^*(Y;M) \cong H^*(G;M)$ với mọi $G$-môđun $M$.
+\end{proposition}
+
+% \begin{define}
+%     Cho đồng cấu nhóm $\alpha: G \rightarrow G'$ với $C$ và $D$ lần lượt là phép giải của $\Z$ trên $\Z G$ và $\Z G'$. Ta có thể coi $D$ là $G$-môđun thông qua $\alpha$. Từ Bổ đề \ref{lem:extend_chain_map}, ta có thể xây dựng
+% \end{define}
+
+\subsection{(Đối) đồng điều của nhóm cyclic}
+Đây là một ví dụ đơn giản cho việc tính toán đối đồng điều của nhóm, đồng thời cũng là một kết quả cần thiết để ta tính đối đồng điều của $SL_2(\Z)$ ở phần sau.
+
+Cho $G$ là nhóm cyclic cấp $n$ với $t$ là phần tử sinh. Xét $N = \sum_{i=0}^{n-1} t^i$ và $t-1$ là các phần tử trong $\Z G$. Để ý rằng $(t-1) N = t^n - 1 = 0$, hơn nữa $N$ và $t-1$ đều là các phần tử bất khả quy trên $\Z G$. Do đó $\langle N\rangle = \ker(t-1)$ và $\langle t-1 \rangle = \ker(N)$. Từ đó ta có phép giải tự do sau
+$$
+    \begin{tikzcd}
+        \cdots \arrow[r, "t-1"] & \Z G \arrow[r, "N"] & \Z G \arrow[r, "t-1"] & \Z G \arrow[r, "\epsilon"] & \Z \arrow[r] & 0
+    \end{tikzcd}
+$$
+Tác động hàm tử $\Hom_{\Z G}(-,\Z)$ ta được dãy phức
+$$
+    \begin{tikzcd}
+        \Hom_{\Z G}(\Z G,\Z) \arrow[r, "t-1"] & \Hom_{\Z G}(\Z G,\Z) \arrow[r, "N"] & \Hom_{\Z G}(\Z G,\Z) \arrow[r, "t-1"] & \cdots
+    \end{tikzcd}
+$$
+với $N$ và $t-1$ được xác định thông qua tác động lên $f \in \Hom_{\Z G}(\Z G, \Z)$. Nhưng do $G$ tác động tầm thường lên $\Z$ nên tác động bởi $t-1$ tương ứng với đồng cấu không và tác động bởi $N$ tương ứng với đồng cấu cộng $n$ lần. Do đó dãy phức trên tương đương với
+$$
+    \begin{tikzcd}
+        \Z \arrow[r, "0"] & \Z \arrow[r, "n"] & \Z \arrow[r, "0"] & \Z \arrow[r, "n"] & \cdots
+    \end{tikzcd}
+$$
+Suy ra đối đồng điều thứ $k$ của $G$ là
+$$
+    H^k(G;\Z) = \begin{cases}
+        \Z,   & k = 0              \\
+        0,    & k \text{ lẻ}       \\
+        \Z/n, & k > 0 \text{ chẵn}
+    \end{cases}
+$$
+Từ hệ quả của Định lí hệ số phổ dụng \ref{cor:universal-coef}, ta có
+$$
+    H_k(G;\Z) = \begin{cases}
+        \Z,   & k = 0              \\
+        \Z/n, & k \text{ lẻ}       \\
+        0,    & k > 0 \text{ chẵn}
+    \end{cases}
+$$
+
+% \subsection{Môđun cảm sinh và đối cảm sinh}
+% \begin{define}
+%     Cho $G$ là nhóm, $H \leq G$ và $M$ là $H$-môđun. Ta gọi mở rộng vành hệ tử của $M$ cảm sinh từ đơn cấu vành $\Z G \hookrightarrow \Z H$ là \textdef{môđun cảm sinh} từ $H$ vào $G$, kí hiệu
+%     $$
+%         \Ind^G_H M = \Z G \otimes_{\Z H} M.
+%     $$
+%     Tương tự ta định nghĩa \textdef{môđun đối cảm sinh} từ $H$ vào $G$
+%     $$
+%         \Coind^G_H M = \Hom_{\Z H}(\Z G, M).
+%     $$
+% \end{define}
+
+% \begin{define}
+%     Cho $G$ là nhóm hữu hạn và $M$ là một $ G$-môđun. Với $n > 0$, đặt
+%     $$
+%         C^n(G,M) = \{ f: G^n \rightarrow M \}
+%     $$
+%     là tập các \textdef{đối dây chuyền $n$ chiều}. Quy ước $C^0(G,M) = M$ và $C^n(G,M) = 0$ với $n < 0$. Từ đó ta định nghĩa toán tử đối biên $\delta^n: C^n(G,M) \rightarrow C^{n+1}(G,M)$ xác định bởi
+%     \begin{align*}
+%         (\delta^n f)(g_1,...,g_n) = & g_0f(g_1,...,g_n)                                                 \\
+%         +                           & \sum_{j=1}^n (-1)^j f(g_0,...,g_{j-2},g_{j-1}g_j,g_{j+1},...,g_n) \\
+%         +                           & (-1)^{n+1} f(g_0,...,g_{n-1})
+%     \end{align*}
+%     với $n > 1$.
+% \end{define}
+\subsection{(Đối) đồng điều của tích amalgam}
+Trong phần này ta sẽ đưa ra dãy khớp dài để tính (đối) đồng điều của tích amalgam từ các nhóm cấu thành. Trước tiên ta nhắc lại Định lí Seifert–Van Kampen theorem ở dạng CW-phức.
+
+\begin{theorem}
+    Cho $X$ là CW-phức, trong đó $X = X_1 \cup X_2$ có phần giao $Y = X_1 \cap X_2$ liên thông khác rỗng. Khi đó ta có phân tích
+    $$
+        \pi_1 X = \pi_1 X_1 *_{\pi_1 Y} \pi_1 X_2.
+    $$
+    Nói theo ngôn ngữ phạm trù thì $\pi_1: \textbf{Complex} \rightarrow \textbf{Grp}$ là hàm tử bảo toàn tích amalgam. Để nghiên cứu đối đồng điều nhóm, ta mong muốn hàm tử $K(-,1)$ đi chiều ngược lại và cũng bảo toàn tích amalgam. Thật vậy, miễn là hai ánh xạ $f_1, f_2$ trong phân tích là đơn ánh thì điều này hoàn toàn đúng.
+\end{theorem}
+
+\begin{theorem}[\cite{CohomBrown}]
+    Mọi phân tích amalgam $G_1 *_A G_2$ trên nhóm
+    $$
+        \begin{tikzcd}
+            A \arrow[d, "f_2"'] \arrow[r, "f_1"] & G_1 \arrow[d] \\
+            G_2 \arrow[r]                        & G
+        \end{tikzcd}
+    $$
+    với $f_1, f_2$ là đơn ánh đều nhận được từ nhóm cơ bản của các không gian phân loại
+    $$
+        \begin{tikzcd}
+            Y \arrow[r, hook] \arrow[d, hook] & X_1 \arrow[d, hook] \\
+            X_2 \arrow[r, hook]               & X
+        \end{tikzcd}
+    $$
+    trong đó $Y,X_1,X_2,X$ lần lượt là không gian phân loại của $A,G_1,G_2,G$.
+\end{theorem}
+
+\begin{proposition}[\cite{CohomBrown}]\label{prop:long-seq-amalgam}
+    Cho $G = G_1 *_A G_2$ với các đồng cấu nhúng $\alpha_1: A \rightarrow G_1$ và $\alpha_2: A \rightarrow G_2$. Khi đó ta có dãy khớp dài các đồng điều nhóm
+    $$
+        \cdots \xrightarrow{} H_n(A) \xrightarrow{} H_n(G_1) \oplus H_n(G_2) \xrightarrow{} H_n(G) \xrightarrow{} H_{n-1}(A) \xrightarrow{} \cdots
+    $$
+    và dãy khớp dài các đối đồng điều nhóm với hệ số trong $G$-môđun $M$
+    $$
+        \cdots \xrightarrow{} H^n(A;M) \xrightarrow{} H^n(G_1;M) \oplus H^n(G_2;M) \xrightarrow{} H^n(G;M) \xrightarrow{} H^{n-1}(A;M) \xrightarrow{} \cdots
+    $$
+\end{proposition}

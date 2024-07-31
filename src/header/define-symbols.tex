@@ -1,0 +1,55 @@
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\subset}{\subseteq}
+\newcommand{\dlim}{\displaystyle\lim}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\HC}{\mathbb H}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\isom}{Isom}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\ver}{vert}
+\DeclareMathOperator{\edge}{edge}
+\DeclareMathOperator{\real}{real}
+\DeclareMathOperator{\Real}{Re}\DeclareMathOperator{\vcd}{vcd\:}\DeclareMathOperator{\pd}{proj\: dim}\DeclareMathOperator{\cd}{cd\:}\DeclareMathOperator{\Tor}{Tor}\DeclareMathOperator{\Ext}{Ext}\DeclareMathOperator{\Ind}{Ind}\DeclareMathOperator{\Coind}{Coind}\DeclareMathOperator{\lcm}{lcm}\DeclareMathOperator{\Path}{Path}\DeclareMathOperator{\Circ}{Circ}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\mmod}{\ mod\ }
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\PGam}{P\Gamma}
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}}
+\def\acts{\curvearrowright}
+% QED
+\newcommand*{\QED}[1][$\square$]{%
+    \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+    \quad\hbox{#1}%
+}
+\newcommand*{\QEDFill}
+{\null\nobreak\hfill\ensuremath{\blacksquare}}
+
+% Change largesymbols to other font
+\DeclareSymbolFont{largesymbols}  {OMX}{cmex}{m}{n}
+
+% Square cases
+\makeatletter
+\newenvironment{sqcases}{%
+    \matrix@check\sqcases\env@sqcases
+}{%
+    \endarray\right.%
+}
+\def\env@sqcases{%
+\let\@ifnextchar\new@ifnextchar
+\left\lbrack
+\def\arraystretch{1.2}%
+\array{@{}l@{\quad}l@{}}%
+}

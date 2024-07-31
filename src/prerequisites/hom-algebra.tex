@@ -1,0 +1,154 @@
+\section{Đại số đồng điều}
+
+Trong mục này, nếu không giải thích gì thêm, ta mặc định coi $R$ là vành giao hoán có đơn vị và khi nhắc đến một môđun thì ta hiểu đó là một $R$-môđun trái.
+\begin{define}
+    Một \textdef{phức dây chuyền} là một cặp $(C,d)$,  trong đó $C = \{ C_n \}_{n \in \Z}$ là một họ các môđun và $d = \{d_n: C_n \rightarrow C_{n-1}\}_{n \in \Z}$ là một họ các đồng cấu thỏa mãn $d_n \circ d_{n+1} = 0$.
+
+    $$
+        \begin{tikzcd}
+            \cdots \arrow[r] & C_2 \arrow[r, "d_2"] & C_1 \arrow[r, "d_1"] & C_0 \arrow[r, "d_0"] & C_{-1} \arrow[r] & \cdots
+        \end{tikzcd}
+    $$
+    Một \textdef{phức đối dây chuyền} là một cặp $(C,d)$,  trong đó $C = \{ C_n \}_{n \in \Z}$ là một họ các môđun và $d = \{d^n: C^n \rightarrow C^{n+1}\}_{n \in \Z}$ là một họ các đồng cấu thỏa mãn $d^n \circ d^{n-1} = 0$.
+
+    $$
+        \begin{tikzcd}
+            \cdots & C^2 \arrow[l] & C^1 \arrow[l, "d^1"'] & C^0 \arrow[l, "d^0"'] & C^{-1} \arrow[l, "d^{-1}"'] & \cdots \arrow[l]
+        \end{tikzcd}
+    $$
+    Ngoài ra để ngắn gọn, ta có thể gọi \textdef{phức} hay \textdef{đối phức} thay cho phức dây chuyền và đối phức dây chuyền.
+\end{define}
+
+Từ đó ta định nghĩa \textdef{đồng điều} của một phức $(C,d)$ là họ các nhóm Abel
+$$
+    H_n(C) = \ker d_n / \im d_{n+1}
+$$
+và \textdef{đối đồng điều} của một đối phức $(C,d)$ là họ các nhóm Abel
+$$
+    H^n(C) = \ker d^n / \im d^{n-1},
+$$
+trong đó ta gọi
+\begin{itemize}
+    \item $c \in \ker d_n$ là một \textdef{chu trình $n$ chiều}.
+    \item $c \in \ker d^n$ là một \textdef{đối chu trình $n$ chiều}.
+    \item $b \in \im d_{n+1}$ là một \textdef{biên $n$ chiều}.
+    \item $b \in \im d_{n+1}$ là một \textdef{đối biên $n$ chiều}.
+\end{itemize}
+Hơn nữa ta kí hiệu $[c]$ cho ảnh của $c$ trong $H_n(C)$ nếu $c$ là chu trình và là ảnh của $c$ trong $H^n(C)$ nếu $c$ là đối chu trình.
+
+\begin{define}
+    Cho $(C,d)$ và $(D,d')$ là các phức (tương ứng đối phức). Một \textdef{ánh xạ dây chuyền} $f: C \rightarrow D$ là một họ các đồng cấu $f_n: C_n \rightarrow D_n$ (tương ứng $f^n: C^n \rightarrow D^n$), $n \in \Z$, sao cho biểu đồ sau giao hoán
+    \begin{eqnarray*}
+        \begin{tikzcd}
+            C_n \arrow[d, "f_n"'] \arrow[r, "d_n"] & C_{n-1} \arrow[d, "f_{n-1}"] \\
+            D_n \arrow[r, "d'_n"']                 & D_{n-1}
+        \end{tikzcd}
+        &
+        \left(\text{tương ứng}\quad \begin{tikzcd}
+            C^n \arrow[r, "d^n"] \arrow[d, "f_n"'] & C^{n+1} \arrow[d, "f_{n+1}"] \\
+            D^n \arrow[r, "d'^n"']                 & D^{n+1}
+        \end{tikzcd}\right).
+    \end{eqnarray*}
+
+    Một \textdef{đồng luân} $h$ giữa hai ánh xạ dây chuyền $f,g: (C,d) \rightarrow (D,d')$ là họ các đồng cấu $h_n: C_n \rightarrow D_{n+1}$ sao cho $d'_{n+1} \circ h_n + h_{n-1} \circ d_n = f_n - g_n$. Đồng luân thường được minh họa thông qua biểu đồ sau, tuy nhiên đây không phải là biểu đồ giao hoán.
+    % https://q.uiver.app/#q=WzAsMTAsWzIsMCwiQ19uIl0sWzMsMCwiQ197bi0xfSJdLFsxLDAsIkNfe24rMX0iXSxbMSwxLCJEX3tuKzF9Il0sWzIsMSwiRF9uIl0sWzMsMSwiRF97bi0xfSJdLFswLDAsIlxcY2RvdHMiXSxbMCwxLCJcXGNkb3RzIl0sWzQsMCwiXFxjZG90cyJdLFs0LDEsIlxcY2RvdHMiXSxbMiwzLCIiLDAseyJvZmZzZXQiOjF9XSxbMiwzLCIiLDIseyJvZmZzZXQiOi0xfV0sWzAsNCwiZl9uIiwyLHsib2Zmc2V0IjoxLCJjb2xvdXIiOlszNTksMTAwLDYwXX0sWzM1OSwxMDAsNjAsMV1dLFswLDQsImdfbiIsMCx7Im9mZnNldCI6LTEsImNvbG91ciI6WzM1OSwxMDAsNjBdfSxbMzU5LDEwMCw2MCwxXV0sWzEsNSwiIiwwLHsib2Zmc2V0IjoxfV0sWzEsNSwiIiwyLHsib2Zmc2V0IjotMX1dLFsyLDBdLFszLDQsImQnX3tuKzF9IiwyLHsiY29sb3VyIjpbMzU5LDEwMCw2MF19LFszNTksMTAwLDYwLDFdXSxbNCw1XSxbMCwzLCJoX24iLDEseyJjb2xvdXIiOlszNTksMTAwLDYwXX0sWzM1OSwxMDAsNjAsMV1dLFsxLDQsImhfe24tMX0iLDEseyJjb2xvdXIiOlszNTksMTAwLDYwXX0sWzM1OSwxMDAsNjAsMV1dLFswLDEsImRfbiIsMCx7ImNvbG91ciI6WzM1OSwxMDAsNjBdfSxbMzU5LDEwMCw2MCwxXV0sWzYsMl0sWzcsM10sWzEsOF0sWzUsOV1d
+    \[\begin{tikzcd}
+            \cdots & {C_{n+1}} & {C_n} & {C_{n-1}} & \cdots \\
+            \cdots & {D_{n+1}} & {D_n} & {D_{n-1}} & \cdots
+            \arrow[from=1-1, to=1-2]
+            \arrow[from=1-2, to=1-3]
+            \arrow[shift right, from=1-2, to=2-2]
+            \arrow[shift left, from=1-2, to=2-2]
+            \arrow["{d_n}", color={mycolor}, from=1-3, to=1-4]
+            \arrow["{h_n}"{description}, color={mycolor}, from=1-3, to=2-2]
+            \arrow["{f_n}"', shift right, color={mycolor}, from=1-3, to=2-3]
+            \arrow["{g_n}", shift left, color={mycolor}, from=1-3, to=2-3]
+            \arrow[from=1-4, to=1-5]
+            \arrow["{h_{n-1}}"{description}, color={mycolor}, from=1-4, to=2-3]
+            \arrow[shift right, from=1-4, to=2-4]
+            \arrow[shift left, from=1-4, to=2-4]
+            \arrow[from=2-1, to=2-2]
+            \arrow["{d'_{n+1}}"', color={mycolor}, from=2-2, to=2-3]
+            \arrow[from=2-3, to=2-4]
+            \arrow[from=2-4, to=2-5]
+        \end{tikzcd}\]
+
+    Nếu tồn tại một đồng luân như vậy thì ta nói $f$ đồng luân với $g$. Kí hiệu $f \simeq g$.
+\end{define}
+
+\begin{lemma}\label{lem:extend_chain_map}
+    Cho $(C,d)$ và $(D,d')$ là các phức, $k \in \Z$ và $\{f_i: C_i \rightarrow D_i\}_{i \leq k}$ là họ các đồng cấu thỏa $d_i' \circ f_i = f_{i-1} \circ d_i$ với $i \leq k$. Nếu $C_i$ là môđun xạ ảnh với mọi $i > k$ và $H_i(D) = 0$ với mọi $i \geq k$ thì khi đó $\{f_i\}_{i \leq k}$ mở rộng thành ánh xạ dây chuyền $f: C \rightarrow D$. Hơn nữa $f$ xác định duy nhất sai khác một đồng luân.
+\end{lemma}
+
+\begin{define}
+    Một \textdef{phép giải} của môđun $M$ trên $R$ là một dãy khớp các $R$-môđun
+    $$
+        \begin{tikzcd}
+            \cdots \arrow[r] & P_2 \arrow[r, "d_2"] & P_1 \arrow[r, "d_1"] & P_0 \arrow[r, "\varepsilon"] & M \arrow[r] & 0
+        \end{tikzcd}
+    $$
+    % Ta kí hiệu phép giải trên bằng bộ $(P,d,\epsilon)$.
+
+    Nếu $\{P_n\}$ là các môđun tự do (tương ứng môđun xạ ảnh) thì phép giải trên được gọi là \textdef{phép giải tự do} (tương ứng \textdef{phép giải xạ ảnh}).
+
+    Nếu tồn tại chỉ số $n \in \N$ nào đó để $P_n \neq 0$ và $P_{k} = 0$ với mọi $k \geq n$ thì khi đó ta nói phép giải trên hữu hạn với độ dài $n$.
+\end{define}
+
+\begin{define}
+    Cho $M,A$ là các môđun và $(P,d,\varepsilon)$ là một phép giải xạ ảnh của $M$. Khi đó ta định nghĩa $\Tor_n^R(M,A)$ là đồng điều bậc $n$ của phức dây chuyền
+    $$
+        \begin{tikzcd}
+            \cdots \arrow[r] & P_2 \otimes A \arrow[r, "d_2 \otimes 1"] & P_1 \otimes A \arrow[r, "d_1 \otimes 1"] & P_0 \otimes A \arrow[r] & 0
+        \end{tikzcd}
+    $$
+    và $\Ext^n_R(M,A)$ là đồng điều bậc $n$ của phức dây chuyền
+    $$
+        \begin{tikzcd}
+            \cdots \arrow[r] & {\Hom(P_2,A)} & {\Hom(P_1,A)} \arrow[l, "\delta^1"'] & {\Hom(P_0,A)} \arrow[l, "\delta^0"'] & 0 \arrow[l]
+        \end{tikzcd}
+    $$
+    trong đó $\delta^n = \square \circ d_{n+1}$.
+
+    Hai định nghĩa trên đều được định nghĩa tốt, nghĩa là $\Tor_n^R(M,A)$ và $\Ext^n_R(M,A)$ không phụ thuộc vào phép giải xạ ảnh của $M$. Trong trường hợp vành $R$ không gây sự nhầm lẫn thì ta có thể lược bỏ chỉ số $R$ của $\Tor$ và $\Ext$ cho ngắn gọn. Hơn nữa ta kí hiệu $\Tor(M,A)$ thay cho $\Tor_1(M,A)$ và $\Ext(M,A)$ thay cho $\Ext^1(M,A)$.
+\end{define}
+
+\begin{proposition}[\cite{HatcherAT}]\label{prop:ext-props}
+    Nhóm $\Ext$ trong một vài trường hợp cụ thể có thể dễ dàng tính toán được dựa trên một số tính chất sau:
+    \begin{itemize}
+        \item $\Ext^n(M_1 \oplus M_2, A) \cong \Ext^n(M_1,A) \oplus \Ext^n(M_2,A)$.
+        \item $\Ext(M, A) = 0$ nếu $M$ xạ ảnh.
+        \item $\Ext(\Z/m, G) \cong G/mG$, trong đó $G$ là nhóm Abel.
+    \end{itemize}
+\end{proposition}
+
+\begin{theorem}[Định lí hệ số phổ dụng cho đối đồng điều]
+    Cho $R$ là vành giao hoán, $M$ là $R$-môđun và $C$ là phức các $R$-môđun. Khi đó ta có dãy khớp chẻ
+    $$
+        0 \rightarrow \Ext_R(H_{n-1}(C), M) \rightarrow H^n(C;M) \rightarrow \Hom_R(H_n(C), M) \rightarrow 0.
+    $$
+\end{theorem}
+
+\startproof Xem \cite[Định lí 3.2]{HatcherAT}.\qed
+
+Định lí này là một công cụ mạnh mẽ giúp ta tính đối đồng điều của nhóm. Cụ thể trong trường hợp $M = R = \Z$, ta có hệ quả sau.
+
+\begin{corollary}\label{cor:universal-coef}
+    Cho $C$ là phức các nhóm Abel, $n \in \N$ và giả sử $H_n(C;\Z)$ hữu hạn sinh, tức là ta có phân tích
+    $$
+        H_n(C;\Z) \cong \Z^{b_n} \oplus T_n,
+    $$
+    với $T_n$ là nhóm xoắn. Khi đó
+    $$
+        H^n(C;\Z) \cong \Z^{b_n} \oplus T_{n-1}.
+    $$
+\end{corollary}
+
+\startproof Ta có
+$$
+    \Hom(H_n(C), \Z) \cong \Hom(\Z^{b_n}, \Z) \oplus \Hom(T_n, \Z) \cong \Z^{b_n}
+$$
+và từ Mệnh đề \ref{prop:ext-props} ta suy ra được
+$$
+    \Ext(H_{n-1}(C), \Z) \cong \Ext(\Z^{b_{n-1}}, \Z) \oplus \Ext(T_{n-1}, \Z) \cong T_{n-1}.
+$$
+Áp dụng Định lí hệ số phổ dụng cho đối đồng điều, ta có điều phải chứng minh. \qed

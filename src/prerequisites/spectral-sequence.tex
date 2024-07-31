@@ -1,0 +1,84 @@
+\section{Dãy phổ}
+
+\subsection{Dãy phổ của phức lọc}
+Nếu $C$ là phức và $C'$ là phức con của $C$, khi đó ta biết rằng có một dãy khớp dài cho ta thông tin của $H_*(C)$ dựa trên các hạng tử $H_*(C')$ và $H_*(C/C')$. Bây giờ trong trường hợp thay vì ta có phức con $C'$ đơn lẻ thì ta có một dãy lọc các phức con $\{F_pC\}_{p \in \Z}$ thỏa $F_{p-1}C \subset F_pC$. Lúc này ta cũng muốn có một công cụ để chắt lọc thông tin của $H_*(C)$ từ $H_*(F_pC / F_{p-1}C)$.
+
+\begin{define}[\cite{CohomBrown}]
+    Cho $R$ là vành và $M$ là $R$-môđun. Một \textdef{lọc tăng} của $M$ là một dãy các $R$-môđun con $F_pM (p \in \Z)$ thỏa $F_pM \subset F_{p+1}M$. Lọc này được gọi là hữu hạn nếu $F_pM = 0$ với $p$ đủ nhỏ và $F_pM = M$ với $p$ đủ lớn. Hơn nữa ta định nghĩa \textdef{môđun phân bậc} $\Gr M$ tương ứng với một lọc cho bởi $\Gr_p M = F_pM / F_{p-1}M$.
+
+    Trong trường hợp bản thân $M$ là môđun phân bậc, với mỗi $n \in \Z$, ta có một lọc $\{F_p M_n\}$ trên $M_n$. Khi đó ta nói $M$ có cấu trúc \textdef{môđun song phân bậc}. Lúc này ta kí hiệu
+    $$
+        \Gr_{pq} M = F_p M_{p+q} / F_{p-1} M_{p+q}.
+    $$
+
+    Bây giờ ta xét $C = (C_n)_{n \in \Z}$ là một \textdef{dãy phức lọc}, trong đó mỗi $F_pC$ là phức con của $C$. Để đơn giản, ta giả sử lọc này \textdef{hữu hạn theo từng chiều}, nghĩa là với mỗi $n \in \Z$ thì $\{F_pC_n\}_{p \in \Z}$ là lọc hữu hạn của $C_n$. Từ đó cảm sinh một lọc các đồng điều $H(C)$ cho bởi
+    $$
+        F_pH(C) = \im\{H(F_pC) \rightarrow H(C)\}.
+    $$
+    Ta có thể đồng nhất $F_pH(C)$ bởi $(F_pC \cap Z)/(F_pC \cap B)$, trong đó $Z$ và $B$ lần lượt là môđun các chu trình và môđun các biên của $C$. Lúc này môđun song phân bậc $\Gr H(C)$ cho bởi
+    $$
+        \Gr_pH(C) = (F_pC \cap Z) / ((F_pC \cap B) + (F_{p-1}C \cap Z)).
+    $$
+    Cho $Z^r_p = F_pC \cap \partial^{-1}F_{p-r}C$, nghĩa là
+    $$
+        Z^r_{pq} = F_p C_{p+q} \cap \partial^{-1} F_{p-r}C_{p+q-1}.
+    $$
+    Xét $Z_p^{\infty} = F_pC \cap Z$. Ta có
+    $$
+        F_pC = Z_p^0 \supseteq Z_p^1 \supseteq \cdots \supseteq Z_p^{\infty}.
+    $$
+    Do ta giả sử lọc $\{F_pC\}$ hữu hạn theo từng chiều nên dãy trên phải dừng, nghĩa là với mỗi $(p,q)$, tồn tại $r$ đủ lớn để
+    $$
+        Z_{pq}^r = Z_{pq}^{r+1} = \cdots = Z_{pq}^{\infty}.
+    $$
+    Xét $B_p^r = F_pC \cap \partial F_{p+r-1}C = \partial Z^{r-1}_{p+r-1}$ và đặt $B_p^{\infty} = F_pC \cap B$. Khi đó
+    $$
+        B_p^0 \subset B_p^1 \subset \cdots \subset B_p^{\infty} \subset Z_p^{\infty} \subset \cdots \subset Z_p^1 \subset Z_p^0 = F_pC,
+    $$
+    và cũng như trước, dãy $B_p^0 \subset B_p^1 \subset \cdots \subset B_p^{\infty}$ phải dừng. Ta đặt
+    $$
+        E_p^r = Z_p^r / (B_p^r + Z_{p-1}^{r-1}) = Z_p^r / (B_p^r + (F_{p-1}C \cap Z_p^r)),
+    $$
+    khi đó
+    $$
+        E_p^{\infty} = Z_p^{\infty} / (B_p^{\infty} + Z_{p-1}^{\infty}) = \Gr_pH(C).
+    $$
+    Điều này có nghĩa là với mỗi $(p,q)$, tồn tại $r$ đủ lớn để
+    $$
+        E_{pq}^r = E_{pq}^{r+1} = \cdots = E_{pq}^{\infty}.
+    $$
+    Ta gọi $\{E^r\}$ là \textdef{dãy phổ} ứng với dãy phức lọc $C$ và ta nói dãy phổ này hội tụ về $\Gr H(C)$ khi $r \rightarrow \infty$, kí hiệu $E_{pq}^r \Rightarrow E^{\infty}_{pq}$. Bằng cách lập luận tương tự với lọc giảm trên đối phức, ta có thể định nghĩa dãy phổ $\{E_r\}$ hội tụ về môđun song phân bậc các đối đồng điều.
+\end{define}
+
+\begin{proposition}[\cite{WeiHom}]\label{prop:spec-exact}
+    Cho dãy phổ $\{E_r\}$ hội tụ đến môđun phân bậc $H^n$ và $E_2^{pq} = 0$ ngoại trừ $p=0,1$. Khi đó ta có các dãy khớp
+    $$
+        0 \rightarrow E_2^{1,n-1} \rightarrow H^n \rightarrow E_2^{0,n} \rightarrow 0.
+    $$
+\end{proposition}
+
+\subsection{Một số dãy phổ phổ biến}
+\begin{theorem}\label{thm:hoschschild-spec}
+    Cho $G$ là nhóm, $M$ là $G$-môđun và dãy khớp ngắn
+    $$
+        1 \rightarrow H \rightarrow G \rightarrow Q \rightarrow 1.
+    $$
+    Khi đó tồn tại dãy phổ có dạng
+    $$
+        E_{pq}^2 = H_p(Q, H_q(H,M)) \Rightarrow H_{p+q}(G,M),
+    $$
+    được gọi là \textdef{dãy phổ Lyndon-Hoschschild-Serre}.
+\end{theorem}
+
+\begin{theorem}[\cite{CohomBrown}]\label{thm:equiv-spec}
+    Cho $C(X)$ là phức ô của không gian $G$-phức $X$. Xét \textdef{tác động chéo} (diagonal action) của $G$ lên $C(X,M) = C(X) \otimes M$. \textdef{Đồng điều đẳng biến} được định nghĩa là
+    $$
+        H_n^G(X,M) = H_n(G, C(X,M)).
+    $$
+    Khi đó tồn tại dãy phổ với lọc thứ nhất và thứ hai có dạng
+    \begin{align*}
+        E_{pq}^1 = \bigoplus_{\sigma \in \Sigma_p} H_q(G_{\sigma}, M_\sigma) \Rightarrow H_{p+q}^G(X,M), \\
+        E_{pq}^2 = H_p(G,H_q(X,M)) \Rightarrow H_{p+q}^G(X,M),
+    \end{align*}
+    được gọi là \textdef{dãy phổ đẳng biến} (equivariant spectral sequence).
+\end{theorem}

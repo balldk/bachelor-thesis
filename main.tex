@@ -1,0 +1,43 @@
+\documentclass[a4paper,oneside]{book}
+\input{header}
+
+\begin{document}
+\mainmatter
+
+\input{src/cover/cover.tex}
+\input{src/acknowledgement.tex}
+
+\tableofcontents
+\pagebreak
+\hypersetup{
+    linkcolor=mycolor,
+}
+
+\input{src/intro}
+
+\chapter{Kiến thức chuẩn bị}
+\input{src/prerequisites/category.tex}
+\input{src/prerequisites/arithmetic-group.tex}
+\input{src/prerequisites/bass-serre.tex}
+\input{src/prerequisites/hom-algebra.tex}
+\input{src/prerequisites/group-cohomology.tex}
+\input{src/prerequisites/spectral-sequence.tex}
+
+% \chapter{Nội dung}
+\input{src/contents/sl2z.tex}
+\pagebreak
+\input{src/contents/abel-sl2-1m.tex}
+\pagebreak
+\input{src/contents/cohomology-sl2-1p.tex}
+\pagebreak
+\input{src/contents/euler-characteristic.tex}
+
+% \printindex
+
+\renewcommand\refname{Tài liệu tham khảo}
+% \nocite{*}
+\bibliographystyle{alpha}
+\bibliography{refs}
+\addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+
+\end{document}

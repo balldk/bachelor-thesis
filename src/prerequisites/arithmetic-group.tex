@@ -1,0 +1,145 @@
+\section{Nhóm $S$-số học}
+
+\subsection{Trường số}
+\begin{define}
+    Cho $K$ là trường. Một \textdef{định giá rời rạc} trên $K$ là một ánh xạ $v: K \rightarrow \Z \cup \{ \infty \}$ thỏa
+    \begin{itemize}
+        \item $v(xy) = v(x) + v(y)$.
+        \item $v(x+y) \geq \min(v(x), v(y))$.
+        \item $v(x) = \infty$ khi và chỉ khi $x = 0$.
+    \end{itemize}
+    Khi đó tập tất cả các phần tử $x \in K$ thỏa $v(x) \geq 0$ là một vành, được gọi là \textdef{vành định giá} của $v$. Nếu $v(K^*) = 0$ thì $v$ được gọi là \textdef{định giá tầm thường}. Hai định giá rời rạc được gọi là \textdef{tương đương} nếu chúng có cùng vành định giá. Nếu có phần tử $\pi \in K$ thỏa $v(\pi) = 1$ thì $\pi$ được gọi là \textdef{phần tử đồng nhất}.
+
+    Một ví dụ điển hình là \textdef{định giá $p$-adic} $v_p$ ($p$ nguyên tố) trên trường số hữu tỉ $\Q$ cho bởi
+    $$
+        v_p(a) = \max\{ n \in \Z\ |\ a \text{ chia hết cho } p^n\},
+    $$
+    trong đó $a \in \Z$ và với phân số $a / b \in \Q, b \neq 0$ bất kì thì $v_p(a/b) = v_p(a) - v_p(b)$. Từ đó ta định nghĩa \textdef{chuẩn $p$-adic} $|\cdot|: K \rightarrow \R_{\geq 0}$ cho bởi $|x|_p = p^{-v_p(x)}$. Vành định giá của $v_p$ lúc này là vành địa phương $\Z_{(p)}$. Thật ra định giá $p$-adic là định giá rời rạc trên $\Q$ duy nhất mà ta cần quan tâm vì mọi định giá rời rạc không tầm thường trên $\Q$ đều tương đương với định giá $p$-adic nào đó, đây là nội dung của Định lí Ostrowski.
+\end{define}
+
+\begin{define}
+    Một mở rộng trường $K$ của $\Q$ với bậc mở rộng $[K:\Q]$ hữu hạn được gọi là một \textdef{trường số}. Phần tử $x \in K$ được gọi là \textdef{nguyên} nếu $x$ là nghiệm của một đa thức với hệ số nguyên. Tập tất cả các phần tử nguyên trong $K$ được gọi là \textdef{vành các số nguyên}, kí hiệu $\mathcal{O}_K$.
+\end{define}
+
+\begin{theorem}\label{thm:integers-dedekind}
+    Vành các số nguyên $\mathcal{O}_K$ là vành Dedekind, nghĩa là mọi ideal $\mathfrak{a}$ thật sự của $\mathcal{O}_K$ có phân tích duy nhất thành tích các ideal nguyên tố sai khác một hoán vị
+    \begin{equation}
+        \mathfrak{a} = \mathfrak{p}_2^{e_1} \mathfrak{p}_2^{e_2}...\ \mathfrak{p}_g^{e_g}.\label{eq:prime-ideals-fact}
+    \end{equation}
+\end{theorem}
+
+\startproof Đây là định lí cơ bản có thể được tìm thấy trong một cuốn sách lí thuyết số đại số bất kì, cụ thể người đọc có thể tham khảo chứng minh trong sách của Milne \cite[Định lí 3.29]{MilneANT}.\qed
+
+\begin{define}
+    Cho $\mathfrak{p}$ là ideal nguyên tố của trường số $K$. \textdef{Định giá $\mathfrak{p}$-adic} $v_{\mathfrak{p}}$ trước tiên được định nghĩa trên $\mathcal{O}_K$ cho bởi $v_\mathfrak{p}(x) = m$, trong đó $x \mathcal{O}_K = \mathfrak{p}^m \mathfrak{a}$ với $m \geq 0$, $0 \neq x \in \mathcal{O}_K$ và $\mathfrak{p} \nmid \mathfrak{a}$. $m$ ở đây chính là lũy thừa của $\mathfrak{p}$ trong phân tích nguyên tố của $x\mathcal{O}_K$. Từ đó ta có $v_{\mathfrak{p}}(xy) = v_{\mathfrak{p}}(x) + v_{\mathfrak{p}}(y)$. Vậy với $a = x/y \in K^*$, ta định nghĩa $v_{\mathfrak{p}}(a) := v_{\mathfrak{p}}(x) - v_{\mathfrak{p}}(y)$. \textdef{Chuẩn $\mathfrak{p}$-adic} lúc này được định nghĩa là $|x|_{v_{\mathfrak{p}}} = c^{-v_\mathfrak{p}(x)}$, với $c \in (1,\infty)$ là hằng số cố định trước. Cách chọn hằng số $c$ ở đây không quan trọng vì $c$ khác nhau sẽ cho ra chuẩn tương đương với nhau.
+\end{define}
+
+Từ đây ta cũng có Định lí Ostrowski phiên bản tổng quát cho trường số bất kì.
+
+\begin{theorem}[Ostrowski]\label{thm:ostrowski}
+    Mọi định giá rời rạc không tầm thường trên trường số $K$ đều tương đương với định giá $\mathfrak{p}$-adic, với $\mathfrak{p}$ là ideal nguyên tố nào đó của $K$.
+\end{theorem}
+
+\startproof Xem ghi chú của Keith Conrad \cite{ConradOstrowski}.\qed
+
+\begin{define}
+    Xét $\mathcal{V}$ là tập tất cả các định giá rời rạc trên trường số $K$ và $S \subset \mathcal{V}$ hữu hạn. Phần tử $x \in K$ được gọi là \textdef{$S$-nguyên} nếu $v(x) \geq 0$ với mọi $v \not\in S$. Ta kí hiệu $\mathcal{O}_{K,S}$ cho tập tất cả các phần tử $S$-nguyên trong $K$.
+
+    Theo Định lí Ostrowski, mỗi định giá rời rạc không tầm thường trên $K$ được xác định bởi một ideal nguyên tố $\mathfrak{p}$, do đó ta có thể coi tập $S$ ở đây là tập hữu hạn các ideal nguyên tố. Cụ thể hơn trong trường hợp $K=\Q$ thì ta coi luôn $S$ là tập hữu hạn các số nguyên tố. Mệnh đề sau đây cho ta một mô tả cụ thể cho $\mathcal{O}_{K,S}$.
+\end{define}
+
+\begin{proposition}\label{prop:S-int-structure}
+    Với $m \in \mathcal{O}_K \setminus \{0\}$, ta có $\mathcal{O}_{K,S} = \mathcal{O}_{K}[1/m]$ khi và chỉ khi $S$ chính là tập hữu hạn các định giá rời rạc $v$ trên $K$ sao cho $|1/m|_v > 1$. (Điều này tương đương với phân tích ideal nguyên tố của $m\mathcal{O}_K$ chính là ideal nguyên tố ứng với $v \in S$).
+\end{proposition}
+
+\startproof Xem chứng minh \cite[Bổ đề 1.1]{ConradSInteger}.
+
+\begin{example}
+    Với $K = \Q$. Xét $S = \{p_1,...,p_n\}$ là tập hữu hạn các số nguyên tố. Đặt $m = p_1...p_n$. Theo Mệnh đề \ref{prop:S-int-structure}, ta có
+    $$
+        \mathcal{O}_{K,S} = \{ a/b \in \Q\ |\ (a,b)=1, p \nmid b, p \not\in S \text{ nguyên tố} \} = \Z[1/m].
+    $$
+    Trong trường hợp $S = \varnothing$ thì
+    $$
+        \mathcal{O}_{K,S} = \mathcal{O}_K = \Z.
+    $$
+    Điều này cũng đúng với trường số $K$ tổng quát, nghĩa là mọi phần tử nguyên trong $K$ cũng $S$-nguyên trong $K$ với $S$ là tập rỗng.
+\end{example}
+
+\subsection{Nhóm $S$-số học}
+
+\begin{define}[\cite{SouleArithGroup}]
+    Cho $n \in \N_{\geq 1}$, $G$ là nhóm con của $GL_n(\C)$ và $K$ là trường số. $G$ được gọi là một \textdef{nhóm đại số tuyến tính} trên $K$ nếu $G$ là tập không điểm của một bộ hữu hạn các đa thức trên $K$ nhận các hệ số trong ma trận $n \times n$ và nghịch đảo định thức của ma trận đó làm đối số. Nghĩa là tồn tại các đa thức $P_1,...,P_k \in K[u, x_{ij} | 1 \leq i,j \leq n]$ sao cho
+    $$
+        P_1(\det(g)^{-1}, g) = \cdots = P_k(\det(g)^{-1}, g) = 0
+    $$
+    với mọi $g \in G$.
+
+    Với $R$ là vành con của $\C$, ta kí hiệu $G(R) = G \cap GL_n(R)$. Nhóm $G(\Q)$ được gọi là \textdef{nhóm các điểm hữu tỉ} của $G$ và $G(\Z)$ được gọi là \textdef{nhóm các điểm nguyên} của $G$. Về mặt tổng quát thì định nghĩa "điểm nguyên"\ ở đây vẫn còn hạn chế vì với mỗi phép nhúng $G \xhookrightarrow{} G(\Q)$ khác nhau thì ta lại có nhóm các điểm nguyên khác nhau. Do đó định nghĩa sau có thể được coi là định nghĩa tổng quát hơn.
+\end{define}
+
+\begin{define}[\cite{SouleArithGroup}]
+    Cho $n \in \N_{\geq 1}$ và $G$ là nhóm đại số tuyến tính trên $\Q$. Hai nhóm con $\Gamma_1$ và $\Gamma_2$ của $G$ được gọi là \textdef{tương xứng} nếu phần giao $\Gamma_1 \cap \Gamma_2$ có chỉ số hữu hạn trong cả $\Gamma_1$ và $\Gamma_2$. \textdef{Nhóm số học} $\Gamma$ là nhóm con của $G(\Q)$ tương xứng với $G(\Z)$.
+\end{define}
+
+Thay vì xét các điểm nguyên trên $G$ thì bằng một cách tự nhiên, ta có thể xét tổng quát các điểm $S$-nguyên trên $G$.
+
+\begin{define}
+    Cho $G$ là nhóm đại số tuyến tính trên trường số $K$ và $S$ là tập hữu hạn các định giá rời rạc trên $K$. Nếu nhóm $\Gamma$ tương xứng với $G(\mathcal{O}_{K,S})$ thì ta gọi $\Gamma$ là \textdef{nhóm $S$-số học}.
+\end{define}
+
+\begin{example}
+    $GL_n(\C)$ là tập các ma trận $g$ thỏa $u \det(g) - 1 = 0$, trong đó $u = \det(g)^{-1}$. Vậy nên $GL_n(\C)$ là nhóm đại số tuyến tính trên $\Q$.
+\end{example}
+
+\begin{example}
+    $SL_n(\C)$ là tập nghiệm của đa thức $\det(X) - 1$ nên là nhóm đại số tuyến tính trên $\Q$ có nhóm các điểm hữu tỉ là $SL_n(\Q)$ và nhóm các điểm nguyên là $SL_n(\Z)$. Do đó $SL_n(\Z)$ là nhóm số học. Bằng cách xét tập các số nguyên tố $S = \{p_1,...,p_k\}$, ta có $SL_n(\mathcal{O}_{\Q,S}) = SL_n(\Z[1/p_1...p_k])$ là nhóm $S$-số học.
+\end{example}
+
+\begin{lemma}
+    Nếu $K$ là trường số và $\mathfrak{a}$ là ideal khác $0$ của $\mathcal{O}_K$ thì $\mathcal{O}_K / \mathfrak{a}$ hữu hạn.
+
+    \textit{Ý tưởng chứng minh:}\enskip $\mathcal{O}_K$ đẳng cấu nhóm với $\Z^k$, trong đó $k$ là bậc mở rộng của $K$ trên $\Q$. Lấy phần tử $0\neq a \in \mathfrak{a}$, khi đó $N(a)$ là chuẩn của $a$ chia hết cho $a$ nên $(N(a)) \subset (a) \subset \mathfrak{a}$. Hơn nữa $\Z^k / (N(a)) \Z^k \cong (\Z / N(a))^k$ hữu hạn nên $\mathcal{O}_K / \mathfrak{a}$ hữu hạn.\qed
+\end{lemma}
+
+% \begin{corollary}
+%     Nếu $K$ là trường số và $\mathfrak{a}$ là ideal khác $0$ của $\mathcal{O}_{K,S}$ thì $\mathcal{O}_{K,S} / \mathfrak{a}$ hữu hạn.
+% \end{corollary}
+% \startproof Tôi để chứng minh trong nháp nhưng chưa kiếm ra. \qed
+
+% \begin{define}
+%     Cho $G$ là nhóm đại số tuyến tính trên trường số $K$, $S$ là tập hữu hạn các định giá rời rạc trên $K$ và $\mathfrak{a}$ là ideal của $\mathcal{O}_{K,S}$. Ta định nghĩa \textdef{nhóm con đồng dư chính mức $n$} của $G(\mathcal{O}_{K,S})$ là nhân của đồng cấu chiếu $p: G(\mathcal{O}_{K,S}) \rightarrow G(\mathcal{O}_{K,S}/\mathfrak{a})$, trong đó $n = |\mathcal{O}_{K,S}/\mathfrak{a}|$, kí hiệu $\Gamma(n)$.
+
+%     $p$ ở đây là toàn cấu và do đó $G(\mathcal{O}_{K,S}) / \Gamma(n) \cong G(\mathcal{O}_{K,S} / \mathfrak{a})$, nên $\Gamma(n)$ có chỉ số hữu hạn trong $G(\mathcal{O}_{K,S})$.
+
+%     Một nhóm con $H$ của $G(\mathcal{O}_{K,S})$ được gọi là \textdef{nhóm con đồng dư} nếu $H$ chứa nhóm con đồng dư chính $\Gamma(n)$. Mức của $H$ là số $n$ nhỏ nhất thỏa điều trên.
+% \end{define}
+
+\begin{define}
+    Cho $G$ là nhóm đại số tuyến tính trên trường số $K$. Ta định nghĩa \textdef{nhóm con đồng dư chính mức $n$} của $G(\mathcal{O}_{K})$ là nhân của đồng cấu chiếu $p: G(\mathcal{O}_{K}) \rightarrow G(\mathcal{O}_{K}/\mathfrak{a})$, trong đó $n = |\mathcal{O}_{K}/\mathfrak{a}|$, kí hiệu $\Gamma(n)$. $p$ ở đây là toàn cấu và do đó $G(\mathcal{O}_{K}) / \Gamma(n) \cong G(\mathcal{O}_{K} / \mathfrak{a})$, nên $\Gamma(n)$ có chỉ số hữu hạn trong $G(\mathcal{O}_{K})$.
+
+    Một nhóm con $H$ của $G(\mathcal{O}_{K})$ được gọi là \textdef{nhóm con đồng dư} nếu $H$ chứa nhóm con đồng dư chính $\Gamma(n)$. Mức của $H$ là số $n$ nhỏ nhất thỏa điều trên.
+\end{define}
+
+\begin{example}
+    Trong trường hợp $G = SL_2(\Z)$, nhóm con đồng dư chính $\Gamma(n)$ có dạng
+    $$
+        \Gamma(n) = \left\{ \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix} \in G\ \middle|\ \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix} \equiv \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix} \operatorname*{mod}\ n \right\}
+    $$
+    Ta cụ thể quan tâm đến một nhóm con đồng dư, được gọi là \textdef{nhóm con đồng dư Hecke} $\Gamma_0(p)$ cho bởi
+    $$
+        \Gamma_0(p) = \left\{ \begin{pmatrix}
+            * & * \\
+            c & *
+        \end{pmatrix} \in SL_2(\Z)\ \middle|\ c \equiv 0\ (\operatorname*{mod}\ p) \right\}.
+    $$
+\end{example}

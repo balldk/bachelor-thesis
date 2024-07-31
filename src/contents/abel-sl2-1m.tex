@@ -1,0 +1,121 @@
+\chapter{Đồng điều thứ nhất của $SL_2(\Z[1/m])$}
+
+Ở chương này, dựa trên kết quả Carl-Fredrik \cite{CarlAbelSL2}, ta sẽ tính đồng điều thứ nhất của nhóm $SL_2(\Z[1/m])$ với $m$ bất kì thông qua abel hóa (Định lí \ref{thm:first-homology}).
+
+Cho $m \geq 1$, định nghĩa nhóm
+$$
+    \mathcal{H}_m = \langle x,y\ |\ x^m y x^m = yx^my, y^mxy^m = xy^mx, (x^2y^m)^4 = 1 \rangle.
+$$
+Ta bắt đầu phần này với một quan sát.
+
+\begin{proposition}
+    $$
+        \mathcal{H}_1 \cong SL_2(\Z).
+    $$
+\end{proposition}
+\startproof Trước tiên ta ghi lại
+\begin{equation}\label{eq:h1-presentation}
+    \mathcal{H}_1 = \langle x,y\ |\ xyx = yxy, (x^2y)^4 = 1 \rangle
+\end{equation}
+Ta sẽ chứng tỏ biểu diễn trên tương đương với biểu diễn ta đưa ra cho $SL_2(\Z)$ ở Hệ quả \ref{cor:sl2z-presentation}
+$$
+    SL_2(\Z) = \langle R,S\ |\ R^6 = S^4 = 1, R^3 = S^2 \rangle.
+$$
+Ta có $(x^2y)^4 = x(xyx)(xyx)(xyx)xy = x(yxy)(yxy)(yxy)xy = (xy)^6$. Vậy bằng cách đặt $r = xy$, $s = x^2y$, ta sẽ đưa về được biểu diễn mong muốn, thật vậy
+\begin{align*}
+    r^3 = s^2 \Longleftrightarrow x^2yx^2y = xyxyxy \Longleftrightarrow xyx = yxy.
+\end{align*}
+Suy ra biểu diễn \ref{eq:h1-presentation} tương đương với $\langle r,s\ |\ r^6 = s^4 = 1, r^3 = s^2 \rangle \cong SL_2(\Z)$.\qed
+
+\begin{lemma}[\cite{MennickeIhara}]\label{lem:gen-sl2-1m}
+    $SL_2(\Z[1/m])$ được sinh bởi ba ma trận sau
+    $$
+        A = \begin{pmatrix}
+            1 & 0 \\
+            1 & 1
+        \end{pmatrix},\enskip
+        B = \begin{pmatrix}
+            0  & 1 \\
+            -1 & 0
+        \end{pmatrix},\enskip
+        U_m = \begin{pmatrix}
+            m & 0   \\
+            0 & 1/m
+        \end{pmatrix}.
+    $$
+\end{lemma}
+% \startproof Xét $\gamma = \begin{pmatrix}
+%         a & b \\
+%         c & d
+%     \end{pmatrix} \in SL_2(\Z[1/m])$
+
+\begin{lemma}\label{lem:surject-phi-m}
+    Với $m \geq 1$, ánh xạ $\varphi_m: \mathcal{H}_m \rightarrow SL_2(\Z[1/m])$ xác định bởi
+    $$
+        \varphi_m(x) = A = \begin{pmatrix}
+            1 & 0 \\
+            1 & 1
+        \end{pmatrix} \enskip\text{và}\enskip
+        \varphi_m(y) = Q_m = \begin{pmatrix}
+            1 & -1/m \\
+            0 & 1
+        \end{pmatrix}
+    $$
+    là toàn cấu.
+\end{lemma}
+\startproof Đầu tiên để kiểm tra tính đồng cấu, ta cần kiểm tra ảnh của mọi quan hệ trên $\mathcal{H}_m$ phải bảo toàn qua $\varphi_m$, thật vậy
+\begin{align*}
+    A^m Q_m A^m = \begin{pmatrix}
+                      0 & -1/m \\
+                      m & 0
+                  \end{pmatrix} = Q_m A^m Q_m. \\
+    Q_m^m A Q_m^m = \begin{pmatrix}
+                        0 & -1 \\
+                        1 & 0
+                    \end{pmatrix} = A Q_m^m A. \\
+    A^2Q_m^m = \begin{pmatrix}
+                   1 & -1 \\
+                   2 & -1
+               \end{pmatrix}\text{ là phần tử cấp 4}.
+\end{align*}
+Để chứng tỏ $\varphi_m$ toàn ánh, để ý rằng
+% $SL_2(\Z[1/m])$ được sinh bởi ba ma trận
+% $$
+%     A = \begin{pmatrix}
+%         1 & 0 \\
+%         1 & 1
+%     \end{pmatrix},\enskip
+%     B = \begin{pmatrix}
+%         0  & 1 \\
+%         -1 & 0
+%     \end{pmatrix},\enskip
+%     U_m = \begin{pmatrix}
+%         m & 0   \\
+%         0 & 1/m
+%     \end{pmatrix}.
+% $$
+% Hơn nữa
+$$
+    B = A^{-1}Q_m^{-m}A^{-1}\enskip\text{và}\enskip U_m = B^{-1}Q_m^{-1}A^{-m}Q_m^{-1},
+$$
+Kết hợp với Bổ đề \ref{lem:gen-sl2-1m} ta suy ra được $A = \varphi_m(x)$ và $U_m = \varphi_m(y)$ sinh ra $SL_2(\Z[1/m])$. Vậy $\varphi_m$ toàn cấu.\qed
+
+\begin{theorem}\label{thm:abel-sl2-1m}
+    Với $m \geq 1$, ta có
+    $$
+        H_1(SL_2(\Z[1/m])) = (\mathcal{H}_m)^{\ab} \cong \begin{cases}
+            1     & \text{nếu } 6\ |\ m,                           \\
+            \Z/3  & \text{nếu } 2\ |\ m \text{ và } \gcd(m,3) = 1, \\
+            \Z/4  & \text{nếu } 3\ |\ m \text{ và } \gcd(m,2) = 1, \\
+            \Z/12 & \text{nếu } \gcd(m,6) = 1.
+        \end{cases}
+    $$
+\end{theorem}
+\startproof Bằng cách thêm quan hệ giao hoán cho $\mathcal{H}_m$ ta được
+\begin{align*}
+    (\mathcal{H}_m)^{\ab} & = \langle x,y\ |\ x^m = y,\ y^m = x,\ x^8y^{4m} = 1,\ xy=yx \rangle \\
+                          & = \langle x\ |\ x^{m^2-1} = 1,\ x^{4m^2+8} = 1 \rangle              \\
+                          & \cong \Z/\gcd(m^2-1, 4m^2+8).
+    % (\mathcal{H}_m)^{\ab} \cong \Z/\gcd(m^2+1, 12m, 4m^2+8).
+\end{align*}
+Đặt $G_m = SL_2(\Z[1/m])^{\ab}$. Từ Bổ đề \ref{lem:surject-phi-m} suy ra $\varphi_m$ cảm sinh một toàn cấu $\varphi_m^{\ab}: (\mathcal{H}_m)^{\ab} \rightarrow G_m$. Nếu $6\ |\ m$ thì $(\mathcal{H}_m)^{\ab} = 1$, dẫn đến $G_m = 1$. Nếu $2\ |\ m$ và $\gcd(m,3)=1$ thì $|G_m| \leq 3$, tuy nhiên trong trường hợp này ta có toàn cấu từ $SL_2(\Z[1/m])$ vào $SL_2(\Z/3)$ (là nhóm có abel hóa bằng $\Z/3$), do đó $G_m \cong \Z/3$. Nếu $3\ |\ m$ và $\gcd(2,m)=1$ thì $|G_m| \leq 4$, tuy nhiên lúc này ta lại có toàn cấu từ $SL_2(\Z[1/m])$ vào $SL_2(\Z/4)$ (là nhóm có abel hóa bằng $\Z/4$), do đó $|G_m| = \Z/4$. Cuối cùng, nếu $\gcd(m,6) = 1$ thì khi đó $|G_m| \leq 12$, kết hợp hai lập luận trên ta suy ra $G_m \cong \Z/4 \times \Z/3 \cong \Z/12$.\qed

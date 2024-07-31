@@ -1,0 +1,41 @@
+% ============ Import Library ============
+% Apply template
+% Using vietnamese
+\usepackage[utf8]{vietnam}
+\usepackage[vietnamese=nohyphenation]{hyphsubst}
+\usepackage[vietnamese]{babel}
+\usepackage[utf8]{inputenc}
+% Some essential libs for math
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{mathtools}
+\usepackage{cases}
+% \usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage[all]{xy}
+% Essential libs for paper format
+\usepackage{graphicx}
+\usepackage{scrextend}
+% Others
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{tcolorbox}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage{stackengine,trimclip,scalerel}
+\usepackage{mfirstuc}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{varwidth}
+
+\input{src/header/document-format.tex}
+\input{src/header/chapter-style.tex}
+\input{src/header/define-symbols.tex}
+\input{src/header/fun-emojis.tex}
+\input{src/header/header-footer.tex}
+\input{src/header/define-theorems.tex}
+
+\usepackage{imakeidx}
+% \makeindex[intoc]
+% \newcommand{\textdef}[1]{\textbf{#1}\index{\MakeLowercase{#1}}}
+\newcommand{\textdef}[1]{\textbf{#1}}
